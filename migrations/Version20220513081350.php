@@ -22,7 +22,7 @@ final class Version20220513081350 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE SEQUENCE car_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
         $this->addSql('CREATE SEQUENCE car_photos_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-        $this->addSql('CREATE TABLE car (id INT NOT NULL, matricula VARCHAR(10) NOT NULL, created TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, wa_id INT NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE car (id INT NOT NULL, matricula VARCHAR(15) NOT NULL, created TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, wa_id VARCHAR(15) NOT NULL, tel_from VARCHAR(15) NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE TABLE car_photos (id INT NOT NULL, photo_id VARCHAR(255) NOT NULL, created TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE TABLE messenger_messages (id BIGSERIAL NOT NULL, body TEXT NOT NULL, headers TEXT NOT NULL, queue_name VARCHAR(190) NOT NULL, created_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, available_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, delivered_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE INDEX IDX_75EA56E0FB7336F0 ON messenger_messages (queue_name)');

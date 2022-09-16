@@ -5,18 +5,15 @@ namespace App\MessageHandler;
 
 use App\Message\WhatsappNotification;
 use App\Service\MessageProcessor;
+use JetBrains\PhpStorm\NoReturn;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
-use App\Entity\Message;
-
-
 
 #[AsMessageHandler]
 class WhatsappNotificationHandler
 {
     private LoggerInterface $logger;
-
-    private  $processMessage;
+    private MessageProcessor $processMessage;
 
     public function __construct(LoggerInterface $logger, MessageProcessor $processMessage)
     {
@@ -24,9 +21,10 @@ class WhatsappNotificationHandler
         $this->processMessage = $processMessage;
     }
 
+    #[NoReturn]
     public function __invoke(WhatsappNotification $message)
     {
-        $datas = json_decode($message->getContent(), true);
-        $this->processMessage->process($datas);
+        $data = json_decode($message->getContent(), true);
+        $this->processMessage->process($data);
     }
 }
