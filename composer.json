@@ -41,6 +41,7 @@
         "symfony/twig-bundle": "6.0.*",
         "symfony/validator": "6.0.*",
         "symfony/yaml": "6.0.*",
+        "ext-simplexml": "*",
         "twig/extra-bundle": "^3.4"
     },
     "config": {

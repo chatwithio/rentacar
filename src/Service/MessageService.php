@@ -13,40 +13,40 @@ class MessageService
 
     private array $envs = [
         'PROD' => 'https://waba.360dialog.io',
-        'DEV' => 'https://waba-sandbox.360dialog.io',
+        'DEV'  => 'https://waba-sandbox.360dialog.io',
 
     ];
 
     //The api endpoints. There are more but these are the important ones
     private array $endpoint = [
-        'contact' => [
+        'contact'     => [
             'method' => 'POST',
-            'url' => '/v1/contacts'
+            'url'    => '/v1/contacts'
         ],
-        'message' => [
+        'message'     => [
             'method' => 'POST',
-            'url' => '/v1/messages'
+            'url'    => '/v1/messages'
         ]
         ,
-        'template' => [
+        'template'    => [
             'method' => 'GET',
-            'url' => '/v1/configs/templates'
+            'url'    => '/v1/configs/templates'
         ],
-        'getWebhook' => [
+        'getWebhook'  => [
             'method' => 'GET',
-            'url' => '/v1/configs/webhook'
+            'url'    => '/v1/configs/webhook'
         ],
         'makeWebhook' => [
             'method' => 'POST',
-            'url' => '/v1/configs/webhook'
+            'url'    => '/v1/configs/webhook'
         ],
-        'getMedia' => [
+        'getMedia'    => [
             'method' => 'GET',
-            'url' => '/v1/media/'
+            'url'    => '/v1/media/'
         ],
-        'postMedia' => [
-            'method'=> 'POST',
-            'url' => '/v1/media/'
+        'postMedia'   => [
+            'method' => 'POST',
+            'url'    => '/v1/media/'
         ],
 
     ];
@@ -85,22 +85,19 @@ class MessageService
      */
 
 
-
-    private function send($endpoint, $data = [], $arg = '', $json=true)
+    private function send($endpoint, $data = [], $arg = '', $json = true)
     {
-
         try {
             if ($this->payloadOk === true) {
-
                 //$client = new GuzzleHttp\Client();
 
                 $request = $this->client->request(
                     $this->endpoint[$endpoint]['method'],
-                    $this->endpoint[$endpoint]['url'].$arg,
+                    $this->endpoint[$endpoint]['url'] . $arg,
 
                     [
                         "headers" => $this->headers,
-                        "json" => $data
+                        "json"    => $data
                     ]
                 );
 
@@ -113,32 +110,33 @@ class MessageService
                     throw new \Exception('Unvalidated payload Exception');
                 }
             }
-        }catch (\Exception $exception) {
+        } catch (\Exception $exception) {
             $this->logErrors($exception);
         }
     }
 
-    public function getImage($id){
-         return $this->send('getMedia',null,$id,false);
+    public function getMedia($id)
+    {
+        return $this->send('getMedia', null, $id, false);
     }
 
-    public function postImage($data, $type){
+    public function postMedia($data, $type)
+    {
         $headers = $this->headers;
         $headers['Content-Type'] = $type;
         $request = $this->client->request(
             "POST",
             "https://waba.360dialog.io/v1/media",
-
             [
                 "headers" => $headers,
-                "body" => $data
+                "body"    => $data
             ]
-        );;
+        );
+
         $json = json_decode($request->getContent());
-        if(isset($json->media[0]->id)){
+        if (isset($json->media[0]->id)) {
             return $json->media[0]->id;
-        }
-        else{
+        } else {
             return false;
         }
     }
@@ -153,8 +151,8 @@ class MessageService
     {
         try {
             $payload = [
-                "blocking" => "wait",
-                "contacts" => ["+" . $contact],
+                "blocking"    => "wait",
+                "contacts"    => ["+" . $contact],
                 "force_check" => true
             ];
 
@@ -167,7 +165,6 @@ class MessageService
                 }
             }
             return false;
-
         } catch (Exception $exception) {
             $this->logErrors($exception);
         }
@@ -207,18 +204,18 @@ class MessageService
 
 
         $payload = [
-            "to" => $to,
-            "type" => "template",
+            "to"       => $to,
+            "type"     => "template",
             "template" => [
-                "namespace" => $namespace,
-                "language" => [
+                "namespace"  => $namespace,
+                "language"   => [
                     "policy" => "deterministic",
-                    "code" => $language
+                    "code"   => $language
                 ],
-                "name" => $template,
+                "name"       => $template,
                 "components" => [
                     [
-                        "type" => "body",
+                        "type"       => "body",
                         "parameters" => $this->buildParams($placeholders)
 
                     ]
@@ -229,40 +226,40 @@ class MessageService
         return $this->send('message', $payload);
     }
 
-
-    public function sendWhatsAppImage($to, $placeholders, $template, $language, $namespace, $image)
+    public function sendWhatsAppMedia($to, $placeholders, $template, $language, $namespace, $type, $media)
     {
         $this->checkContact($to);
 
         $payload = [
-            "to" => $to,
-            "type" => "template",
+            "to"       => $to,
+            "type"     => "template",
             "template" => [
-                "namespace" => $namespace,
-                "language" => [
+                "namespace"  => $namespace,
+                "language"   => [
                     "policy" => "deterministic",
-                    "code" => $language
+                    "code"   => $language
                 ],
-                "name" => $template,
+                "name"       => $template,
                 "components" => [
                     [
-                        "type" => "body",
+                        "type"       => "body",
                         "parameters" => $this->buildParams($placeholders),
                     ],
                     [
-                        "type" => "header",
+                        "type"       => "header",
                         "parameters" => [
-                                [
-                                    "type"=>"image",
-                                    "image"=>[
-                                        "id" => $image,
-                                        //"caption"=>null
+                            [
+                                "type"  => $type,
+                                $type => [
+                                    "id" => $media
+                                    //"caption"=>null
                                 ]
                             ]
                         ]
                     ]
                 ]
-            ]];
+            ]
+        ];
 
         return $this->send('message', $payload);
     }
@@ -275,7 +272,7 @@ class MessageService
     public function sendWhatsAppText($to, $message)
     {
         $payload = [
-            "to" => $to,
+            "to"   => $to,
             "type" => "text",
             "text" => ["body" => $message]
 

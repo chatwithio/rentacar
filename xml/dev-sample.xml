@@ -1,0 +1,1344 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<FormattedReport xmlns='urn:crystal-reports:schemas' xmlns:xsi='http://www.w3.org/2000/10/XMLSchema-instance'
+>
+    <FormattedAreaPair Level="0" Type="Report">
+        <FormattedArea Type="Header">
+            <FormattedSections>
+                <FormattedSection SectionNumber="0">
+                    <FormattedReportObjects>
+                        <FormattedReportObject xsi:type="CTFormattedText">
+                            <ObjectName>Text1</ObjectName>
+                            <TextValue>LISTADO DE ENTREGAS</TextValue>
+                        </FormattedReportObject>
+                        <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date" FieldName="PrintDate">
+                            <ObjectName>PrintDate1</ObjectName>
+                            <FormattedValue>27/05/2022</FormattedValue>
+                            <Value>2022-05-27</Value>
+                        </FormattedReportObject>
+                        <FormattedReportObject xsi:type="CTFormattedText">
+                            <ObjectName>Text2</ObjectName>
+                            <TextValue>Fecha :</TextValue>
+                        </FormattedReportObject>
+                        <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string" FieldName="{@FOM1}">
+                            <ObjectName>FOM11</ObjectName>
+                            <FormattedValue>F.Salida De 27/05/2022 a 27/05/2022 Ordenado por: Fec+Hora E.
+                            </FormattedValue>
+                            <Value>F.Salida De 27/05/2022 a 27/05/2022 Ordenado por: Fec+Hora E.</Value>
+                        </FormattedReportObject>
+                        <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string" FieldName="{@FOM2}">
+                            <ObjectName>FOM21</ObjectName>
+                            <FormattedValue></FormattedValue>
+                            <Value></Value>
+                        </FormattedReportObject>
+                        <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string" FieldName="{@FOM3}">
+                            <ObjectName>FOM31</ObjectName>
+                            <FormattedValue></FormattedValue>
+                            <Value></Value>
+                        </FormattedReportObject>
+                        <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string" FieldName="{@FOM4}">
+                            <ObjectName>FOM41</ObjectName>
+                            <FormattedValue></FormattedValue>
+                            <Value></Value>
+                        </FormattedReportObject>
+                    </FormattedReportObjects>
+                </FormattedSection>
+            </FormattedSections>
+        </FormattedArea>
+        <FormattedAreaPair Level="1" Type="Details">
+            <FormattedArea Type="Details">
+                <FormattedSections>
+                    <FormattedSection SectionNumber="0">
+                        <FormattedReportObjects>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.GRUPO_RES1}">
+                                <ObjectName>GRUPORES11</ObjectName>
+                                <FormattedValue>D1</FormattedValue>
+                                <Value>D1</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.NUMERO_RES}">
+                                <ObjectName>NUMERORES1</ObjectName>
+                                <FormattedValue>CO12003363</FormattedValue>
+                                <Value>CO12003363</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date"
+                                                   FieldName="{R.FSALIDA_RES1}">
+                                <ObjectName>FSALIDARES11</ObjectName>
+                                <FormattedValue>27/05/2022</FormattedValue>
+                                <Value>2022-05-27</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.HSALIDA_RES1}">
+                                <ObjectName>HSALIDARES11</ObjectName>
+                                <FormattedValue>10:00</FormattedValue>
+                                <Value>10:00</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date"
+                                                   FieldName="{R.FPREV_RES1}">
+                                <ObjectName>FPREVRES11</ObjectName>
+                                <FormattedValue>09/06/2022</FormattedValue>
+                                <Value>2022-06-09</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.HPREV_RES1}">
+                                <ObjectName>HPREVRES11</ObjectName>
+                                <FormattedValue>18:00</FormattedValue>
+                                <Value>18:00</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:long"
+                                                   FieldName="{R.DIAFAC_RES1}">
+                                <ObjectName>DIAFACRES11</ObjectName>
+                                <FormattedValue>14</FormattedValue>
+                                <Value>14.00</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.LUENTRE_RES1}">
+                                <ObjectName>LUENTRERES11</ObjectName>
+                                <FormattedValue>REINA SOFIA</FormattedValue>
+                                <Value>REINA SOFIA</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{C1.NOMBRE}">
+                                <ObjectName>NOMBRE1</ObjectName>
+                                <FormattedValue>DINNIGAN JEMMA</FormattedValue>
+                                <Value>DINNIGAN JEMMA</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.NOMBRE_RES1}">
+                                <ObjectName>NOMBRERES11</ObjectName>
+                                <FormattedValue>DINNIGAN JEMMA</FormattedValue>
+                                <Value>DINNIGAN JEMMA</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.VUELO_RES1}">
+                                <ObjectName>VUELORES11</ObjectName>
+                                <FormattedValue></FormattedValue>
+                                <Value></Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{C2.DIRFRA}">
+                                <ObjectName>DIRFRA1</ObjectName>
+                                <FormattedValue>AVDA EUROPA 31</FormattedValue>
+                                <Value>AVDA EUROPA 31</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R2.OBS1_RES2}">
+                                <ObjectName>OBS1RES21</ObjectName>
+                                <FormattedValue></FormattedValue>
+                                <Value></Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text15</ObjectName>
+                                <TextValue></TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.REFERENCIA_RES1}">
+                                <ObjectName>REFERENCIARES11</ObjectName>
+                                <FormattedValue></FormattedValue>
+                                <Value></Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.OFISALIDA_RES1}">
+                                <ObjectName>OFISALIDARES11</ObjectName>
+                                <FormattedValue>CO</FormattedValue>
+                                <Value>CO</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.OFIRETORNO_RES1}">
+                                <ObjectName>OFIRETORNORES11</ObjectName>
+                                <FormattedValue>CO</FormattedValue>
+                                <Value>CO</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.OFICINA_RES1}">
+                                <ObjectName>OFICINARES11</ObjectName>
+                                <FormattedValue>CO</FormattedValue>
+                                <Value>CO</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text17</ObjectName>
+                                <TextValue>OFI RESERVA :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text18</ObjectName>
+                                <TextValue>USUARIO CREACIÓN :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.USUARIO_RES1}">
+                                <ObjectName>USUARIORES11</ObjectName>
+                                <FormattedValue>CA</FormattedValue>
+                                <Value>CA</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date"
+                                                   FieldName="{R.FECHA_RES1}">
+                                <ObjectName>FECHARES11</ObjectName>
+                                <FormattedValue>18/05/2022</FormattedValue>
+                                <Value>2022-05-18</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.HORA_RES1}">
+                                <ObjectName>HORARES11</ObjectName>
+                                <FormattedValue>12:04</FormattedValue>
+                                <Value>12:04</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text19</ObjectName>
+                                <TextValue>FECHA RESERVA :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text20</ObjectName>
+                                <TextValue>H. RES. :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text21</ObjectName>
+                                <TextValue>Telf.: +353852574167</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string" FieldName="{%Matr}">
+                                <ObjectName>Matr1</ObjectName>
+                                <FormattedValue>7954 JRJ</FormattedValue>
+                                <Value>7954 JRJ</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string" FieldName="{%Color}">
+                                <ObjectName>Color1</ObjectName>
+                                <FormattedValue>BLANCO</FormattedValue>
+                                <Value>BLANCO</Value>
+                            </FormattedReportObject>
+                        </FormattedReportObjects>
+                    </FormattedSection>
+                    <FormattedSection SectionNumber="1">
+                        <FormattedReportObjects>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text22</ObjectName>
+                                <TextValue>Última Devolución: :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{%ULT_DEVO}">
+                                <ObjectName>ULTRES1</ObjectName>
+                                <FormattedValue>CO20011904</FormattedValue>
+                                <Value>CO20011904</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{%ULT_LUDEVO}">
+                                <ObjectName>ULTLUDEVO1</ObjectName>
+                                <FormattedValue>RODEOS</FormattedValue>
+                                <Value>RODEOS</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text27</ObjectName>
+                                <TextValue>Lugar:</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{%ULT_DIRLOCAL}">
+                                <ObjectName>ULTDIRLOCAL1</ObjectName>
+                                <FormattedValue>RIU GAROÉ</FormattedValue>
+                                <Value>RIU GAROÉ</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text24</ObjectName>
+                                <TextValue>Fecha:</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date" FieldName="{%ULT_FEC}">
+                                <ObjectName>ULTFEC1</ObjectName>
+                                <FormattedValue>26/05/2022</FormattedValue>
+                                <Value>2022-05-26</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:time" FieldName="{%ULT_H}">
+                                <ObjectName>ULTH1</ObjectName>
+                                <FormattedValue>9:30</FormattedValue>
+                                <Value>09:30:00</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string" FieldName="{C2.EMAIL}">
+                                <ObjectName>EMAIL1</ObjectName>
+                                <FormattedValue></FormattedValue>
+                                <Value></Value>
+                            </FormattedReportObject>
+                        </FormattedReportObjects>
+                    </FormattedSection>
+                </FormattedSections>
+            </FormattedArea>
+        </FormattedAreaPair>
+        <FormattedAreaPair Level="1" Type="Details">
+            <FormattedArea Type="Details">
+                <FormattedSections>
+                    <FormattedSection SectionNumber="0">
+                        <FormattedReportObjects>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.GRUPO_RES1}">
+                                <ObjectName>GRUPORES11</ObjectName>
+                                <FormattedValue>C</FormattedValue>
+                                <Value>C</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.NUMERO_RES}">
+                                <ObjectName>NUMERORES1</ObjectName>
+                                <FormattedValue>CO12003366</FormattedValue>
+                                <Value>CO12003366</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date"
+                                                   FieldName="{R.FSALIDA_RES1}">
+                                <ObjectName>FSALIDARES11</ObjectName>
+                                <FormattedValue>27/05/2022</FormattedValue>
+                                <Value>2022-05-27</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.HSALIDA_RES1}">
+                                <ObjectName>HSALIDARES11</ObjectName>
+                                <FormattedValue>10:00</FormattedValue>
+                                <Value>10:00</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date"
+                                                   FieldName="{R.FPREV_RES1}">
+                                <ObjectName>FPREVRES11</ObjectName>
+                                <FormattedValue>02/06/2022</FormattedValue>
+                                <Value>2022-06-02</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.HPREV_RES1}">
+                                <ObjectName>HPREVRES11</ObjectName>
+                                <FormattedValue>18:00</FormattedValue>
+                                <Value>18:00</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:long"
+                                                   FieldName="{R.DIAFAC_RES1}">
+                                <ObjectName>DIAFACRES11</ObjectName>
+                                <FormattedValue>7</FormattedValue>
+                                <Value>7.00</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.LUENTRE_RES1}">
+                                <ObjectName>LUENTRERES11</ObjectName>
+                                <FormattedValue>RODEOS FZ</FormattedValue>
+                                <Value>RODEOS FZ</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{C1.NOMBRE}">
+                                <ObjectName>NOMBRE1</ObjectName>
+                                <FormattedValue>PRADO ALIPCHYKAV YANN</FormattedValue>
+                                <Value>PRADO ALIPCHYKAV YANN</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.NOMBRE_RES1}">
+                                <ObjectName>NOMBRERES11</ObjectName>
+                                <FormattedValue>PRADO ALIPCHYKAV YANN</FormattedValue>
+                                <Value>PRADO ALIPCHYKAV YANN</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.VUELO_RES1}">
+                                <ObjectName>VUELORES11</ObjectName>
+                                <FormattedValue></FormattedValue>
+                                <Value></Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{C2.DIRFRA}">
+                                <ObjectName>DIRFRA1</ObjectName>
+                                <FormattedValue>RIU GAROÉ</FormattedValue>
+                                <Value>RIU GAROÉ</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R2.OBS1_RES2}">
+                                <ObjectName>OBS1RES21</ObjectName>
+                                <FormattedValue></FormattedValue>
+                                <Value></Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text15</ObjectName>
+                                <TextValue></TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.REFERENCIA_RES1}">
+                                <ObjectName>REFERENCIARES11</ObjectName>
+                                <FormattedValue></FormattedValue>
+                                <Value></Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.OFISALIDA_RES1}">
+                                <ObjectName>OFISALIDARES11</ObjectName>
+                                <FormattedValue>CO</FormattedValue>
+                                <Value>CO</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.OFIRETORNO_RES1}">
+                                <ObjectName>OFIRETORNORES11</ObjectName>
+                                <FormattedValue>CO</FormattedValue>
+                                <Value>CO</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.OFICINA_RES1}">
+                                <ObjectName>OFICINARES11</ObjectName>
+                                <FormattedValue>CO</FormattedValue>
+                                <Value>CO</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text17</ObjectName>
+                                <TextValue>OFI RESERVA :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text18</ObjectName>
+                                <TextValue>USUARIO CREACIÓN :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.USUARIO_RES1}">
+                                <ObjectName>USUARIORES11</ObjectName>
+                                <FormattedValue>CA</FormattedValue>
+                                <Value>CA</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date"
+                                                   FieldName="{R.FECHA_RES1}">
+                                <ObjectName>FECHARES11</ObjectName>
+                                <FormattedValue>18/05/2022</FormattedValue>
+                                <Value>2022-05-18</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.HORA_RES1}">
+                                <ObjectName>HORARES11</ObjectName>
+                                <FormattedValue>13:09</FormattedValue>
+                                <Value>13:09</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text19</ObjectName>
+                                <TextValue>FECHA RESERVA :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text20</ObjectName>
+                                <TextValue>H. RES. :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text21</ObjectName>
+                                <TextValue>Telf.: 722523223</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string" FieldName="{%Matr}">
+                                <ObjectName>Matr1</ObjectName>
+                                <FormattedValue>0666 JRK</FormattedValue>
+                                <Value>0666 JRK</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string" FieldName="{%Color}">
+                                <ObjectName>Color1</ObjectName>
+                                <FormattedValue>GRIS</FormattedValue>
+                                <Value>GRIS</Value>
+                            </FormattedReportObject>
+                        </FormattedReportObjects>
+                    </FormattedSection>
+                    <FormattedSection SectionNumber="1">
+                        <FormattedReportObjects>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text22</ObjectName>
+                                <TextValue>Última Devolución: :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{%ULT_DEVO}">
+                                <ObjectName>ULTRES1</ObjectName>
+                                <FormattedValue>CO20011917</FormattedValue>
+                                <Value>CO20011917</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{%ULT_LUDEVO}">
+                                <ObjectName>ULTLUDEVO1</ObjectName>
+                                <FormattedValue>HOTELPTO</FormattedValue>
+                                <Value>HOTELPTO</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text27</ObjectName>
+                                <TextValue>Lugar:</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{%ULT_DIRLOCAL}">
+                                <ObjectName>ULTDIRLOCAL1</ObjectName>
+                                <FormattedValue>ALUA TENERIFE</FormattedValue>
+                                <Value>ALUA TENERIFE</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text24</ObjectName>
+                                <TextValue>Fecha:</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date" FieldName="{%ULT_FEC}">
+                                <ObjectName>ULTFEC1</ObjectName>
+                                <FormattedValue>27/05/2022</FormattedValue>
+                                <Value>2022-05-27</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:time" FieldName="{%ULT_H}">
+                                <ObjectName>ULTH1</ObjectName>
+                                <FormattedValue>8:00</FormattedValue>
+                                <Value>08:00:00</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string" FieldName="{C2.EMAIL}">
+                                <ObjectName>EMAIL1</ObjectName>
+                                <FormattedValue></FormattedValue>
+                                <Value></Value>
+                            </FormattedReportObject>
+                        </FormattedReportObjects>
+                    </FormattedSection>
+                </FormattedSections>
+            </FormattedArea>
+        </FormattedAreaPair>
+        <FormattedAreaPair Level="1" Type="Details">
+            <FormattedArea Type="Details">
+                <FormattedSections>
+                    <FormattedSection SectionNumber="0">
+                        <FormattedReportObjects>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.GRUPO_RES1}">
+                                <ObjectName>GRUPORES11</ObjectName>
+                                <FormattedValue>D2</FormattedValue>
+                                <Value>D2</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.NUMERO_RES}">
+                                <ObjectName>NUMERORES1</ObjectName>
+                                <FormattedValue>ET12001081</FormattedValue>
+                                <Value>ET12001081</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date"
+                                                   FieldName="{R.FSALIDA_RES1}">
+                                <ObjectName>FSALIDARES11</ObjectName>
+                                <FormattedValue>27/05/2022</FormattedValue>
+                                <Value>2022-05-27</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.HSALIDA_RES1}">
+                                <ObjectName>HSALIDARES11</ObjectName>
+                                <FormattedValue>10:00</FormattedValue>
+                                <Value>10:00</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date"
+                                                   FieldName="{R.FPREV_RES1}">
+                                <ObjectName>FPREVRES11</ObjectName>
+                                <FormattedValue>02/06/2022</FormattedValue>
+                                <Value>2022-06-02</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.HPREV_RES1}">
+                                <ObjectName>HPREVRES11</ObjectName>
+                                <FormattedValue>20:00</FormattedValue>
+                                <Value>20:00</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:long"
+                                                   FieldName="{R.DIAFAC_RES1}">
+                                <ObjectName>DIAFACRES11</ObjectName>
+                                <FormattedValue>7</FormattedValue>
+                                <Value>7.00</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.LUENTRE_RES1}">
+                                <ObjectName>LUENTRERES11</ObjectName>
+                                <FormattedValue>HOTELPTO</FormattedValue>
+                                <Value>HOTELPTO</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{C1.NOMBRE}">
+                                <ObjectName>NOMBRE1</ObjectName>
+                                <FormattedValue>DIAZ LASTRA JESUS ALFONSO</FormattedValue>
+                                <Value>DIAZ LASTRA JESUS ALFONSO</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.NOMBRE_RES1}">
+                                <ObjectName>NOMBRERES11</ObjectName>
+                                <FormattedValue>DIAZ LASTRA JESUS ALFONSO</FormattedValue>
+                                <Value>DIAZ LASTRA JESUS ALFONSO</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.VUELO_RES1}">
+                                <ObjectName>VUELORES11</ObjectName>
+                                <FormattedValue>IBIZA</FormattedValue>
+                                <Value>IBIZA</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{C2.DIRFRA}">
+                                <ObjectName>DIRFRA1</ObjectName>
+                                <FormattedValue>ALUA TENERIFE 1458</FormattedValue>
+                                <Value>ALUA TENERIFE 1458</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R2.OBS1_RES2}">
+                                <ObjectName>OBS1RES21</ObjectName>
+                                <FormattedValue></FormattedValue>
+                                <Value></Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text15</ObjectName>
+                                <TextValue></TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.REFERENCIA_RES1}">
+                                <ObjectName>REFERENCIARES11</ObjectName>
+                                <FormattedValue>ESPAÑOL</FormattedValue>
+                                <Value>ESPAÑOL</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.OFISALIDA_RES1}">
+                                <ObjectName>OFISALIDARES11</ObjectName>
+                                <FormattedValue>ET</FormattedValue>
+                                <Value>ET</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.OFIRETORNO_RES1}">
+                                <ObjectName>OFIRETORNORES11</ObjectName>
+                                <FormattedValue>ET</FormattedValue>
+                                <Value>ET</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.OFICINA_RES1}">
+                                <ObjectName>OFICINARES11</ObjectName>
+                                <FormattedValue>ET</FormattedValue>
+                                <Value>ET</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text17</ObjectName>
+                                <TextValue>OFI RESERVA :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text18</ObjectName>
+                                <TextValue>USUARIO CREACIÓN :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.USUARIO_RES1}">
+                                <ObjectName>USUARIORES11</ObjectName>
+                                <FormattedValue>OS</FormattedValue>
+                                <Value>OS</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date"
+                                                   FieldName="{R.FECHA_RES1}">
+                                <ObjectName>FECHARES11</ObjectName>
+                                <FormattedValue>26/05/2022</FormattedValue>
+                                <Value>2022-05-26</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.HORA_RES1}">
+                                <ObjectName>HORARES11</ObjectName>
+                                <FormattedValue>10:32</FormattedValue>
+                                <Value>10:32</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text19</ObjectName>
+                                <TextValue>FECHA RESERVA :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text20</ObjectName>
+                                <TextValue>H. RES. :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text21</ObjectName>
+                                <TextValue>Telf.: 690163673</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string" FieldName="{%Matr}">
+                                <ObjectName>Matr1</ObjectName>
+                                <FormattedValue>1438 KFS</FormattedValue>
+                                <Value>1438 KFS</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string" FieldName="{%Color}">
+                                <ObjectName>Color1</ObjectName>
+                                <FormattedValue>BLANCO</FormattedValue>
+                                <Value>BLANCO</Value>
+                            </FormattedReportObject>
+                        </FormattedReportObjects>
+                    </FormattedSection>
+                    <FormattedSection SectionNumber="1">
+                        <FormattedReportObjects>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text22</ObjectName>
+                                <TextValue>Última Devolución: :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{%ULT_DEVO}">
+                                <ObjectName>ULTRES1</ObjectName>
+                                <FormattedValue>CO20011905</FormattedValue>
+                                <Value>CO20011905</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{%ULT_LUDEVO}">
+                                <ObjectName>ULTLUDEVO1</ObjectName>
+                                <FormattedValue>GARAJE</FormattedValue>
+                                <Value>GARAJE</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text27</ObjectName>
+                                <TextValue>Lugar:</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{%ULT_DIRLOCAL}">
+                                <ObjectName>ULTDIRLOCAL1</ObjectName>
+                                <FormattedValue>TENEGUIA</FormattedValue>
+                                <Value>TENEGUIA</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text24</ObjectName>
+                                <TextValue>Fecha:</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date" FieldName="{%ULT_FEC}">
+                                <ObjectName>ULTFEC1</ObjectName>
+                                <FormattedValue>26/05/2022</FormattedValue>
+                                <Value>2022-05-26</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:time" FieldName="{%ULT_H}">
+                                <ObjectName>ULTH1</ObjectName>
+                                <FormattedValue>18:00</FormattedValue>
+                                <Value>18:00:00</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string" FieldName="{C2.EMAIL}">
+                                <ObjectName>EMAIL1</ObjectName>
+                                <FormattedValue></FormattedValue>
+                                <Value></Value>
+                            </FormattedReportObject>
+                        </FormattedReportObjects>
+                    </FormattedSection>
+                </FormattedSections>
+            </FormattedArea>
+        </FormattedAreaPair>
+        <FormattedAreaPair Level="1" Type="Details">
+            <FormattedArea Type="Details">
+                <FormattedSections>
+                    <FormattedSection SectionNumber="0">
+                        <FormattedReportObjects>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.GRUPO_RES1}">
+                                <ObjectName>GRUPORES11</ObjectName>
+                                <FormattedValue>C</FormattedValue>
+                                <Value>C</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.NUMERO_RES}">
+                                <ObjectName>NUMERORES1</ObjectName>
+                                <FormattedValue>VE12001576</FormattedValue>
+                                <Value>VE12001576</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date"
+                                                   FieldName="{R.FSALIDA_RES1}">
+                                <ObjectName>FSALIDARES11</ObjectName>
+                                <FormattedValue>27/05/2022</FormattedValue>
+                                <Value>2022-05-27</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.HSALIDA_RES1}">
+                                <ObjectName>HSALIDARES11</ObjectName>
+                                <FormattedValue>11:00</FormattedValue>
+                                <Value>11:00</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date"
+                                                   FieldName="{R.FPREV_RES1}">
+                                <ObjectName>FPREVRES11</ObjectName>
+                                <FormattedValue>01/06/2022</FormattedValue>
+                                <Value>2022-06-01</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.HPREV_RES1}">
+                                <ObjectName>HPREVRES11</ObjectName>
+                                <FormattedValue>11:00</FormattedValue>
+                                <Value>11:00</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:long"
+                                                   FieldName="{R.DIAFAC_RES1}">
+                                <ObjectName>DIAFACRES11</ObjectName>
+                                <FormattedValue>5</FormattedValue>
+                                <Value>5.00</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.LUENTRE_RES1}">
+                                <ObjectName>LUENTRERES11</ObjectName>
+                                <FormattedValue>PARKING</FormattedValue>
+                                <Value>PARKING</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{C1.NOMBRE}">
+                                <ObjectName>NOMBRE1</ObjectName>
+                                <FormattedValue>ROMERO DONOSO DANIEL</FormattedValue>
+                                <Value>ROMERO DONOSO DANIEL</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.NOMBRE_RES1}">
+                                <ObjectName>NOMBRERES11</ObjectName>
+                                <FormattedValue>ROMERO DONOSO DANIEL</FormattedValue>
+                                <Value>ROMERO DONOSO DANIEL</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.VUELO_RES1}">
+                                <ObjectName>VUELORES11</ObjectName>
+                                <FormattedValue>T. YARIS</FormattedValue>
+                                <Value>T. YARIS</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{C2.DIRFRA}">
+                                <ObjectName>DIRFRA1</ObjectName>
+                                <FormattedValue>LAS VEGAS 1102</FormattedValue>
+                                <Value>LAS VEGAS 1102</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R2.OBS1_RES2}">
+                                <ObjectName>OBS1RES21</ObjectName>
+                                <FormattedValue></FormattedValue>
+                                <Value></Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text15</ObjectName>
+                                <TextValue></TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.REFERENCIA_RES1}">
+                                <ObjectName>REFERENCIARES11</ObjectName>
+                                <FormattedValue>ESPAÑOL</FormattedValue>
+                                <Value>ESPAÑOL</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.OFISALIDA_RES1}">
+                                <ObjectName>OFISALIDARES11</ObjectName>
+                                <FormattedValue>VE</FormattedValue>
+                                <Value>VE</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.OFIRETORNO_RES1}">
+                                <ObjectName>OFIRETORNORES11</ObjectName>
+                                <FormattedValue>VE</FormattedValue>
+                                <Value>VE</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.OFICINA_RES1}">
+                                <ObjectName>OFICINARES11</ObjectName>
+                                <FormattedValue>VE</FormattedValue>
+                                <Value>VE</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text17</ObjectName>
+                                <TextValue>OFI RESERVA :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text18</ObjectName>
+                                <TextValue>USUARIO CREACIÓN :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.USUARIO_RES1}">
+                                <ObjectName>USUARIORES11</ObjectName>
+                                <FormattedValue>BJ</FormattedValue>
+                                <Value>BJ</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date"
+                                                   FieldName="{R.FECHA_RES1}">
+                                <ObjectName>FECHARES11</ObjectName>
+                                <FormattedValue>27/05/2022</FormattedValue>
+                                <Value>2022-05-27</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.HORA_RES1}">
+                                <ObjectName>HORARES11</ObjectName>
+                                <FormattedValue>09:52</FormattedValue>
+                                <Value>09:52</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text19</ObjectName>
+                                <TextValue>FECHA RESERVA :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text20</ObjectName>
+                                <TextValue>H. RES. :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text21</ObjectName>
+                                <TextValue>Telf.: 606766785</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string" FieldName="{%Matr}">
+                                <ObjectName>Matr1</ObjectName>
+                                <FormattedValue>9273 JRJ</FormattedValue>
+                                <Value>9273 JRJ</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string" FieldName="{%Color}">
+                                <ObjectName>Color1</ObjectName>
+                                <FormattedValue>CELESTE</FormattedValue>
+                                <Value>CELESTE</Value>
+                            </FormattedReportObject>
+                        </FormattedReportObjects>
+                    </FormattedSection>
+                    <FormattedSection SectionNumber="1">
+                        <FormattedReportObjects>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text22</ObjectName>
+                                <TextValue>Última Devolución: :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{%ULT_DEVO}">
+                                <ObjectName>ULTRES1</ObjectName>
+                                <FormattedValue>CO20011883</FormattedValue>
+                                <Value>CO20011883</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{%ULT_LUDEVO}">
+                                <ObjectName>ULTLUDEVO1</ObjectName>
+                                <FormattedValue>REINA SOFIA</FormattedValue>
+                                <Value>REINA SOFIA</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text27</ObjectName>
+                                <TextValue>Lugar:</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{%ULT_DIRLOCAL}">
+                                <ObjectName>ULTDIRLOCAL1</ObjectName>
+                                <FormattedValue>C/HERCULES 1 PARQUE SAN JOSÉ</FormattedValue>
+                                <Value>C/HERCULES 1 PARQUE SAN JOSÉ</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text24</ObjectName>
+                                <TextValue>Fecha:</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date" FieldName="{%ULT_FEC}">
+                                <ObjectName>ULTFEC1</ObjectName>
+                                <FormattedValue>23/05/2022</FormattedValue>
+                                <Value>2022-05-23</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:time" FieldName="{%ULT_H}">
+                                <ObjectName>ULTH1</ObjectName>
+                                <FormattedValue>15:00</FormattedValue>
+                                <Value>15:00:00</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string" FieldName="{C2.EMAIL}">
+                                <ObjectName>EMAIL1</ObjectName>
+                                <FormattedValue></FormattedValue>
+                                <Value></Value>
+                            </FormattedReportObject>
+                        </FormattedReportObjects>
+                    </FormattedSection>
+                </FormattedSections>
+            </FormattedArea>
+        </FormattedAreaPair>
+        <FormattedAreaPair Level="1" Type="Details">
+            <FormattedArea Type="Details">
+                <FormattedSections>
+                    <FormattedSection SectionNumber="0">
+                        <FormattedReportObjects>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.GRUPO_RES1}">
+                                <ObjectName>GRUPORES11</ObjectName>
+                                <FormattedValue>D1</FormattedValue>
+                                <Value>D1</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.NUMERO_RES}">
+                                <ObjectName>NUMERORES1</ObjectName>
+                                <FormattedValue>CO12003206</FormattedValue>
+                                <Value>CO12003206</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date"
+                                                   FieldName="{R.FSALIDA_RES1}">
+                                <ObjectName>FSALIDARES11</ObjectName>
+                                <FormattedValue>27/05/2022</FormattedValue>
+                                <Value>2022-05-27</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.HSALIDA_RES1}">
+                                <ObjectName>HSALIDARES11</ObjectName>
+                                <FormattedValue>17:15</FormattedValue>
+                                <Value>17:15</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date"
+                                                   FieldName="{R.FPREV_RES1}">
+                                <ObjectName>FPREVRES11</ObjectName>
+                                <FormattedValue>06/06/2022</FormattedValue>
+                                <Value>2022-06-06</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.HPREV_RES1}">
+                                <ObjectName>HPREVRES11</ObjectName>
+                                <FormattedValue>16:00</FormattedValue>
+                                <Value>16:00</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:long"
+                                                   FieldName="{R.DIAFAC_RES1}">
+                                <ObjectName>DIAFACRES11</ObjectName>
+                                <FormattedValue>10</FormattedValue>
+                                <Value>10.00</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.LUENTRE_RES1}">
+                                <ObjectName>LUENTRERES11</ObjectName>
+                                <FormattedValue>REINA SOFIA</FormattedValue>
+                                <Value>REINA SOFIA</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{C1.NOMBRE}">
+                                <ObjectName>NOMBRE1</ObjectName>
+                                <FormattedValue>KLOSS PHILLIP</FormattedValue>
+                                <Value>KLOSS PHILLIP</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.NOMBRE_RES1}">
+                                <ObjectName>NOMBRERES11</ObjectName>
+                                <FormattedValue>KLOSS PHILLIP</FormattedValue>
+                                <Value>KLOSS PHILLIP</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.VUELO_RES1}">
+                                <ObjectName>VUELORES11</ObjectName>
+                                <FormattedValue></FormattedValue>
+                                <Value></Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{C2.DIRFRA}">
+                                <ObjectName>DIRFRA1</ObjectName>
+                                <FormattedValue>ATLANTIC MIRAGE</FormattedValue>
+                                <Value>ATLANTIC MIRAGE</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R2.OBS1_RES2}">
+                                <ObjectName>OBS1RES21</ObjectName>
+                                <FormattedValue></FormattedValue>
+                                <Value></Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text15</ObjectName>
+                                <TextValue></TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.REFERENCIA_RES1}">
+                                <ObjectName>REFERENCIARES11</ObjectName>
+                                <FormattedValue></FormattedValue>
+                                <Value></Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.OFISALIDA_RES1}">
+                                <ObjectName>OFISALIDARES11</ObjectName>
+                                <FormattedValue>CO</FormattedValue>
+                                <Value>CO</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.OFIRETORNO_RES1}">
+                                <ObjectName>OFIRETORNORES11</ObjectName>
+                                <FormattedValue>CO</FormattedValue>
+                                <Value>CO</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.OFICINA_RES1}">
+                                <ObjectName>OFICINARES11</ObjectName>
+                                <FormattedValue>CO</FormattedValue>
+                                <Value>CO</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text17</ObjectName>
+                                <TextValue>OFI RESERVA :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text18</ObjectName>
+                                <TextValue>USUARIO CREACIÓN :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.USUARIO_RES1}">
+                                <ObjectName>USUARIORES11</ObjectName>
+                                <FormattedValue>CA</FormattedValue>
+                                <Value>CA</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date"
+                                                   FieldName="{R.FECHA_RES1}">
+                                <ObjectName>FECHARES11</ObjectName>
+                                <FormattedValue>04/04/2022</FormattedValue>
+                                <Value>2022-04-04</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.HORA_RES1}">
+                                <ObjectName>HORARES11</ObjectName>
+                                <FormattedValue>16:16</FormattedValue>
+                                <Value>16:16</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text19</ObjectName>
+                                <TextValue>FECHA RESERVA :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text20</ObjectName>
+                                <TextValue>H. RES. :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text21</ObjectName>
+                                <TextValue>Telf.: +4917620514182</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string" FieldName="{%Matr}">
+                                <ObjectName>Matr1</ObjectName>
+                                <FormattedValue>0553 KBK</FormattedValue>
+                                <Value>0553 KBK</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string" FieldName="{%Color}">
+                                <ObjectName>Color1</ObjectName>
+                                <FormattedValue>BLANCO</FormattedValue>
+                                <Value>BLANCO</Value>
+                            </FormattedReportObject>
+                        </FormattedReportObjects>
+                    </FormattedSection>
+                    <FormattedSection SectionNumber="1">
+                        <FormattedReportObjects>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text22</ObjectName>
+                                <TextValue>Última Devolución: :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{%ULT_DEVO}">
+                                <ObjectName>ULTRES1</ObjectName>
+                                <FormattedValue>VE20010558</FormattedValue>
+                                <Value>VE20010558</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{%ULT_LUDEVO}">
+                                <ObjectName>ULTLUDEVO1</ObjectName>
+                                <FormattedValue>HOTELPTO</FormattedValue>
+                                <Value>HOTELPTO</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text27</ObjectName>
+                                <TextValue>Lugar:</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{%ULT_DIRLOCAL}">
+                                <ObjectName>ULTDIRLOCAL1</ObjectName>
+                                <FormattedValue>VACACIONAL EDEN 114</FormattedValue>
+                                <Value>VACACIONAL EDEN 114</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text24</ObjectName>
+                                <TextValue>Fecha:</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date" FieldName="{%ULT_FEC}">
+                                <ObjectName>ULTFEC1</ObjectName>
+                                <FormattedValue>21/05/2022</FormattedValue>
+                                <Value>2022-05-21</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:time" FieldName="{%ULT_H}">
+                                <ObjectName>ULTH1</ObjectName>
+                                <FormattedValue>8:00</FormattedValue>
+                                <Value>08:00:00</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string" FieldName="{C2.EMAIL}">
+                                <ObjectName>EMAIL1</ObjectName>
+                                <FormattedValue></FormattedValue>
+                                <Value></Value>
+                            </FormattedReportObject>
+                        </FormattedReportObjects>
+                    </FormattedSection>
+                </FormattedSections>
+            </FormattedArea>
+        </FormattedAreaPair>
+        <FormattedAreaPair Level="1" Type="Details">
+            <FormattedArea Type="Details">
+                <FormattedSections>
+                    <FormattedSection SectionNumber="0">
+                        <FormattedReportObjects>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.GRUPO_RES1}">
+                                <ObjectName>GRUPORES11</ObjectName>
+                                <FormattedValue>L2</FormattedValue>
+                                <Value>L2</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.NUMERO_RES}">
+                                <ObjectName>NUMERORES1</ObjectName>
+                                <FormattedValue>TA12001312</FormattedValue>
+                                <Value>TA12001312</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date"
+                                                   FieldName="{R.FSALIDA_RES1}">
+                                <ObjectName>FSALIDARES11</ObjectName>
+                                <FormattedValue>27/05/2022</FormattedValue>
+                                <Value>2022-05-27</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.HSALIDA_RES1}">
+                                <ObjectName>HSALIDARES11</ObjectName>
+                                <FormattedValue>18:00</FormattedValue>
+                                <Value>18:00</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date"
+                                                   FieldName="{R.FPREV_RES1}">
+                                <ObjectName>FPREVRES11</ObjectName>
+                                <FormattedValue>20/06/2022</FormattedValue>
+                                <Value>2022-06-20</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.HPREV_RES1}">
+                                <ObjectName>HPREVRES11</ObjectName>
+                                <FormattedValue>20:00</FormattedValue>
+                                <Value>20:00</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:long"
+                                                   FieldName="{R.DIAFAC_RES1}">
+                                <ObjectName>DIAFACRES11</ObjectName>
+                                <FormattedValue>24</FormattedValue>
+                                <Value>24.00</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.LUENTRE_RES1}">
+                                <ObjectName>LUENTRERES11</ObjectName>
+                                <FormattedValue>GARAJE</FormattedValue>
+                                <Value>GARAJE</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{C1.NOMBRE}">
+                                <ObjectName>NOMBRE1</ObjectName>
+                                <FormattedValue>GARCIA SANCHEZ MANUEL</FormattedValue>
+                                <Value>GARCIA SANCHEZ MANUEL</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.NOMBRE_RES1}">
+                                <ObjectName>NOMBRERES11</ObjectName>
+                                <FormattedValue>GARCIA SANCHEZ MANUEL</FormattedValue>
+                                <Value>GARCIA SANCHEZ MANUEL</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.VUELO_RES1}">
+                                <ObjectName>VUELORES11</ObjectName>
+                                <FormattedValue>BMW</FormattedValue>
+                                <Value>BMW</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{C2.DIRFRA}">
+                                <ObjectName>DIRFRA1</ObjectName>
+                                <FormattedValue>APTO PRIVADO PUNTA DE HIDALGO( C. OCEANO ATLANTICO 1H )</FormattedValue>
+                                <Value>APTO PRIVADO PUNTA DE HIDALGO( C. OCEANO ATLANTICO 1H )</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R2.OBS1_RES2}">
+                                <ObjectName>OBS1RES21</ObjectName>
+                                <FormattedValue></FormattedValue>
+                                <Value></Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text15</ObjectName>
+                                <TextValue></TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.REFERENCIA_RES1}">
+                                <ObjectName>REFERENCIARES11</ObjectName>
+                                <FormattedValue>ESPAÑOL</FormattedValue>
+                                <Value>ESPAÑOL</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.OFISALIDA_RES1}">
+                                <ObjectName>OFISALIDARES11</ObjectName>
+                                <FormattedValue>TA</FormattedValue>
+                                <Value>TA</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.OFIRETORNO_RES1}">
+                                <ObjectName>OFIRETORNORES11</ObjectName>
+                                <FormattedValue>TA</FormattedValue>
+                                <Value>TA</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.OFICINA_RES1}">
+                                <ObjectName>OFICINARES11</ObjectName>
+                                <FormattedValue>TA</FormattedValue>
+                                <Value>TA</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text17</ObjectName>
+                                <TextValue>OFI RESERVA :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text18</ObjectName>
+                                <TextValue>USUARIO CREACIÓN :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.USUARIO_RES1}">
+                                <ObjectName>USUARIORES11</ObjectName>
+                                <FormattedValue>OS</FormattedValue>
+                                <Value>OS</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date"
+                                                   FieldName="{R.FECHA_RES1}">
+                                <ObjectName>FECHARES11</ObjectName>
+                                <FormattedValue>27/05/2022</FormattedValue>
+                                <Value>2022-05-27</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{R.HORA_RES1}">
+                                <ObjectName>HORARES11</ObjectName>
+                                <FormattedValue>11:47</FormattedValue>
+                                <Value>11:47</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text19</ObjectName>
+                                <TextValue>FECHA RESERVA :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text20</ObjectName>
+                                <TextValue>H. RES. :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text21</ObjectName>
+                                <TextValue>Telf.: 680312761 697706114</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string" FieldName="{%Matr}">
+                                <ObjectName>Matr1</ObjectName>
+                                <FormattedValue>0185 JZH</FormattedValue>
+                                <Value>0185 JZH</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string" FieldName="{%Color}">
+                                <ObjectName>Color1</ObjectName>
+                                <FormattedValue>BLANCO</FormattedValue>
+                                <Value>BLANCO</Value>
+                            </FormattedReportObject>
+                        </FormattedReportObjects>
+                    </FormattedSection>
+                    <FormattedSection SectionNumber="1">
+                        <FormattedReportObjects>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text22</ObjectName>
+                                <TextValue>Última Devolución: :</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{%ULT_DEVO}">
+                                <ObjectName>ULTRES1</ObjectName>
+                                <FormattedValue>VE20010299</FormattedValue>
+                                <Value>VE20010299</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{%ULT_LUDEVO}">
+                                <ObjectName>ULTLUDEVO1</ObjectName>
+                                <FormattedValue>HOTELPTO</FormattedValue>
+                                <Value>HOTELPTO</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text27</ObjectName>
+                                <TextValue>Lugar:</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string"
+                                                   FieldName="{%ULT_DIRLOCAL}">
+                                <ObjectName>ULTDIRLOCAL1</ObjectName>
+                                <FormattedValue>TIGAIGA 206</FormattedValue>
+                                <Value>TIGAIGA 206</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedText">
+                                <ObjectName>Text24</ObjectName>
+                                <TextValue>Fecha:</TextValue>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:date" FieldName="{%ULT_FEC}">
+                                <ObjectName>ULTFEC1</ObjectName>
+                                <FormattedValue>01/03/2022</FormattedValue>
+                                <Value>2022-03-01</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:time" FieldName="{%ULT_H}">
+                                <ObjectName>ULTH1</ObjectName>
+                                <FormattedValue>8:00</FormattedValue>
+                                <Value>08:00:00</Value>
+                            </FormattedReportObject>
+                            <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:string" FieldName="{C2.EMAIL}">
+                                <ObjectName>EMAIL1</ObjectName>
+                                <FormattedValue>marialuisacasa@hotmail.es</FormattedValue>
+                                <Value>marialuisacasa@hotmail.es</Value>
+                            </FormattedReportObject>
+                        </FormattedReportObjects>
+                    </FormattedSection>
+                </FormattedSections>
+            </FormattedArea>
+        </FormattedAreaPair>
+        <FormattedArea Type="Footer">
+            <FormattedSections>
+                <FormattedSection SectionNumber="0">
+                    <FormattedReportObjects>
+                        <FormattedReportObject xsi:type="CTFormattedField" Type="xsd:long"
+                                               FieldName="Count ({R.NUMERO_RES})">
+                            <ObjectName>CountofNUMERORES1</ObjectName>
+                            <FormattedValue>6</FormattedValue>
+                            <Value>6.00</Value>
+                        </FormattedReportObject>
+                        <FormattedReportObject xsi:type="CTFormattedText">
+                            <ObjectName>Text16</ObjectName>
+                            <TextValue>Total Reservas Listadas :</TextValue>
+                        </FormattedReportObject>
+                    </FormattedReportObjects>
+                </FormattedSection>
+            </FormattedSections>
+        </FormattedArea>
+    </FormattedAreaPair>
+</FormattedReport>
