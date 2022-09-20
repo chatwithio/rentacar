@@ -14,6 +14,7 @@
         "doctrine/doctrine-bundle": "^2.5",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.11",
+        "gedmo/doctrine-extensions": "^3.8",
         "guzzlehttp/guzzle": "^7.4",
         "nelmio/cors-bundle": "^2.2",
         "nyholm/psr7": "^1.5",
@@ -26,9 +27,11 @@
         "symfony/dotenv": "6.0.*",
         "symfony/expression-language": "6.0.*",
         "symfony/flex": "^2",
+        "symfony/form": "6.0.*",
         "symfony/framework-bundle": "6.0.*",
         "symfony/http-client": "6.0.*",
         "symfony/messenger": "6.0.*",
+        "symfony/monolog-bundle": "^3.8",
         "symfony/property-access": "6.0.*",
         "symfony/property-info": "6.0.*",
         "symfony/proxy-manager-bridge": "6.0.*",
@@ -37,7 +40,8 @@
         "symfony/serializer": "6.0.*",
         "symfony/twig-bundle": "6.0.*",
         "symfony/validator": "6.0.*",
-        "symfony/yaml": "6.0.*"
+        "symfony/yaml": "6.0.*",
+        "twig/extra-bundle": "^3.4"
     },
     "config": {
         "allow-plugins": {
