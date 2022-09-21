@@ -17,9 +17,8 @@
         <label class="label" for="password">Password:</label>
         <input class="input" type="password" id="password" name="_password"/>
 
-        <input type="hidden" name="_target_path" value="/admin/upload"/>
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-        <button class="button is-primary mt-3" type="submit">Login</button></div>
+        <button class="button is-primary mt-3" type="submit">Login</button>
     </form>
 {% endblock %}
