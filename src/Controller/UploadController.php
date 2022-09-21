@@ -13,7 +13,6 @@ class UploadController extends AbstractController
     #[Route('/admin/upload', name: 'app_upload')]
     public function index(Request $request): Response
     {
-
         $form = $this->createForm(UploadType::class, null);
         $form->handleRequest($request);
 
@@ -29,7 +28,7 @@ class UploadController extends AbstractController
                 } catch (FileException $e) {
                     // ... handle exception if something happens during file upload
                 }
-                $this->addFlash("success","Archivo subido con exito");
+                $this->addFlash("success", "Archivo subido con exito");
             }
         }
         return $this->render('upload/index.html.twig', [

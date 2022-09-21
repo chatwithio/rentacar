@@ -19,7 +19,7 @@
                         {{ knp_pagination_sortable(pagination, 'From', 'messageFrom') }}
                     </th>
                     <th{% if pagination.isSorted('messageFrom') %} class="sorted"{% endif %}>
-                        {{ knp_pagination_sortable(pagination, 'From', 'messageTo') }}
+                        {{ knp_pagination_sortable(pagination, 'To', 'messageTo') }}
                     </th>
                     <th{% if pagination.isSorted('messageType') %} class="sorted"{% endif %}>
                         {{ knp_pagination_sortable(pagination, 'Type', 'messageType') }}

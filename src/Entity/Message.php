@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\MessageRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Timestampable;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -31,7 +32,7 @@ class Message implements Timestampable
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private ?string $license_number;
 
-    #[ORM\Column(type: 'boolean')]
+    #[ORM\Column(type: 'boolean', nullable: true)]
     private ?bool $sent;
 
     #[ORM\Column(type: 'boolean', nullable: true)]
@@ -40,12 +41,18 @@ class Message implements Timestampable
     #[ORM\Column(type: 'boolean', nullable: true)]
     private ?bool $read;
 
+    /**
+     * @var \DateTime
+     */
     #[Gedmo\Timestampable(on: 'create')]
-    #[ORM\Column(type: 'datetime')]
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     protected \DateTime $createdAt;
 
+    /**
+     * @var \DateTime
+     */
     #[Gedmo\Timestampable(on: 'update')]
-    #[ORM\Column(type: 'datetime')]
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     protected \DateTime $updatedAt;
 
     public function getId(): ?int
