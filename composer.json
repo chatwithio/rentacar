@@ -9,6 +9,7 @@
         "php": ">=8.1.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-simplexml": "*",
         "api-platform/core": "^2.6",
         "doctrine/annotations": "^1.13",
         "doctrine/doctrine-bundle": "^2.5",
@@ -16,6 +17,7 @@
         "doctrine/orm": "^2.11",
         "gedmo/doctrine-extensions": "^3.8",
         "guzzlehttp/guzzle": "^7.4",
+        "knplabs/knp-paginator-bundle": "^5.9",
         "nelmio/cors-bundle": "^2.2",
         "nyholm/psr7": "^1.5",
         "phpdocumentor/reflection-docblock": "^5.3",
@@ -41,7 +43,6 @@
         "symfony/twig-bundle": "6.0.*",
         "symfony/validator": "6.0.*",
         "symfony/yaml": "6.0.*",
-        "ext-simplexml": "*",
         "twig/extra-bundle": "^3.4"
     },
     "config": {

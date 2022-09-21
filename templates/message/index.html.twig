@@ -1,17 +1,63 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
-{% block title %}Messages!{% endblock %}
+{% block title %}Messages{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+        <h2 class="mb-5">Messages</h2>
 
-<div class="example-wrapper">
-    {% for product in products %}
-        <p>{{ product }}</p>
-    {% endfor %}
+        {# total items count #}
+        <div class="table-responsive custom-table-responsive">
+            <table class="table custom-table">
+                <thead>
+                <tr>
+                    {# sorting of properties based on query components #}
+                    <th>{{ knp_pagination_sortable(pagination, '#', 'id') }}</th>
+                    <th{% if pagination.isSorted('messageContent') %} class="sorted"{% endif %}>
+                        {{ knp_pagination_sortable(pagination, 'Body', 'messageContent') }}
+                    </th>
+                    <th{% if pagination.isSorted('messageFrom') %} class="sorted"{% endif %}>
+                        {{ knp_pagination_sortable(pagination, 'From', 'messageFrom') }}
+                    </th>
+                    <th{% if pagination.isSorted('messageFrom') %} class="sorted"{% endif %}>
+                        {{ knp_pagination_sortable(pagination, 'From', 'messageTo') }}
+                    </th>
+                    <th{% if pagination.isSorted('messageType') %} class="sorted"{% endif %}>
+                        {{ knp_pagination_sortable(pagination, 'Type', 'messageType') }}
+                    </th>
+                    <th{% if pagination.isSorted('sent') %} class="sorted"{% endif %}>
+                        {{ knp_pagination_sortable(pagination, 'Sent', 'sent') }}
+                    </th>
+                    <th{% if pagination.isSorted('delivered') %} class="sorted"{% endif %}>
+                        {{ knp_pagination_sortable(pagination, 'Delivered', 'delivered') }}
+                    </th>
+                    <th{% if pagination.isSorted('read') %} class="sorted"{% endif %}>
+                        {{ knp_pagination_sortable(pagination, 'Read', 'read') }}
+                    </th>
+                </tr>
+                </thead>
 
-</div>
+                <tbody>
+                {# table body #}
+                {% for message in pagination %}
+                    <tr {% if loop.index is odd %}class="color"{% endif %}>
+                        <td>{{ message.id }}</td>
+                        <td>
+                            {{ message.messageContent }}
+                            <small class="d-block">{{ message.createdAt | date('Y-m-d') }}</small>
+                        </td>
+                        <td>{{ message.messageFrom }}</td>
+                        <td>{{ message.messageTo }}</td>
+                        <td>{{ message.messageType }}</td>
+                        <td>{{ message.sent ? "Yes" : "No" }}</td>
+                        <td>{{ message.delivered ? "Yes" : "No" }}</td>
+                        <td>{{ message.read ? "Yes" : "No" }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            {# display navigation #}
+            <div class="navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        </div>
 {% endblock %}

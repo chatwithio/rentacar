@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\MessagesRepository;
+use App\Repository\MessageRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Timestampable;
+use Gedmo\Mapping\Annotation as Gedmo;
 
-#[ORM\Entity(repositoryClass: MessagesRepository::class)]
+#[ORM\Entity(repositoryClass: MessageRepository::class)]
 #[ORM\Table(name: '`messages`')]
-class Messages implements Timestampable
+class Message implements Timestampable
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -28,16 +29,24 @@ class Messages implements Timestampable
     private string $message_from;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private string $license_number;
+    private ?string $license_number;
 
     #[ORM\Column(type: 'boolean')]
-    private bool $sent;
+    private ?bool $sent;
 
     #[ORM\Column(type: 'boolean', nullable: true)]
-    private bool $delivered;
+    private ?bool $delivered;
 
     #[ORM\Column(type: 'boolean', nullable: true)]
-    private bool $read;
+    private ?bool $read;
+
+    #[Gedmo\Timestampable(on: 'create')]
+    #[ORM\Column(type: 'datetime')]
+    protected \DateTime $createdAt;
+
+    #[Gedmo\Timestampable(on: 'update')]
+    #[ORM\Column(type: 'datetime')]
+    protected \DateTime $updatedAt;
 
     public function getId(): ?int
     {
@@ -121,7 +130,7 @@ class Messages implements Timestampable
         return $this->delivered;
     }
 
-    public function setDelvered(?bool $delivered): self
+    public function setDelivered(?bool $delivered): self
     {
         $this->delivered = $delivered;
 
@@ -138,5 +147,10 @@ class Messages implements Timestampable
         $this->read = $read;
 
         return $this;
+    }
+
+    public function getCreatedAt(): \DateTime
+    {
+        return $this->createdAt;
     }
 }

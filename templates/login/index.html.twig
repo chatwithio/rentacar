@@ -11,7 +11,6 @@
     <h1 class="is-size-1">Login</h1>
 
     <form action="{{ path('app_login') }}" method="post">
-
         <label class="label" for="username">Email:</label>
         <input class="input" type="text" id="username" name="_username" value="{{ last_username }}"/>
 
@@ -20,7 +19,7 @@
 
         <input type="hidden" name="_target_path" value="/admin/upload"/>
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-        <div class="pt-4">
+
         <button class="button is-primary" type="submit">login</button></div>
     </form>
 {% endblock %}
