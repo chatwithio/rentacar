@@ -30,12 +30,12 @@ class MessageProcessor
 
         if (isset($content['messages'])) {
             foreach ($content['messages'] as $k => $message) {
-                $message = new Message();
-                $message->setSent(false);
-                $message->setDelivered(false);
-                $message->setRead(false);
-                $message->setMessageFrom($content['contacts'][$k]['wa_id']);
-                $message->setMessageTo($content['contacts'][$k]['wa_id']);
+                $messageObj = new Message();
+                $messageObj->setSent(false);
+                $messageObj->setDelivered(false);
+                $messageObj->setRead(false);
+                $messageObj->setMessageFrom($content['contacts'][$k]['wa_id']);
+                $messageObj->setMessageTo($content['contacts'][$k]['wa_id']);
                 $name = $content['contacts'][$k]['profile']['name'];
 
                 if ($message['type'] == 'text') {
@@ -46,8 +46,8 @@ class MessageProcessor
                     $matricula = str_replace(" ", '', $matricula);
 
                     if (isset($this->data[$matricula])) {
-                        $message->setMessageType('text');
-                        $message->setMessageContent($matricula);
+                        $messageObj->setMessageType('text');
+                        $messageObj->setMessageContent($matricula);
 
                         //save the data
                         $car = new Car();
@@ -64,7 +64,7 @@ class MessageProcessor
                             "Hola,$name, puedes empezar a enviarnos photos!"
                         );
 
-                        $messageRepository->add($message, true);
+                        $messageRepository->add($messageObj, true);
                     } else {
                         // error whatsapp
                         $this->messageService->sendWhatsAppText(
@@ -87,8 +87,8 @@ class MessageProcessor
                     } else {
                         $image = $this->messageService->getMedia($message['image']['id']);
                         $mediaId = $this->messageService->postMedia($image, $message['image']['mime_type']);
-                        $message->setMessageType('image');
-                        $message->setMessageContent($message['image']['id']);
+                        $messageObj->setMessageType('image');
+                        $messageObj->setMessageContent($message['image']['id']);
 
                         $this->messageService->sendWhatsAppMedia(
                             $this->data[$lastCar->getMatricula()],
@@ -105,7 +105,7 @@ class MessageProcessor
                             "Foto recibido y enviado a " . $this->data[$lastCar->getMatricula()]
                         );
 
-                        $messageRepository->add($message, true);
+                        $messageRepository->add($messageObj, true);
                     }
                 } elseif ($message['type'] == 'video') {
                     $this->processXml();
@@ -122,8 +122,8 @@ class MessageProcessor
                     } else {
                         $video = $this->messageService->getMedia($message['video']['id']);
                         $mediaId = $this->messageService->postMedia($video, $message['video']['mime_type']);
-                        $message->setMessageType('video');
-                        $message->setMessageContent($message['video']['id']);
+                        $messageObj->setMessageType('video');
+                        $messageObj->setMessageContent($message['video']['id']);
 
                         $this->messageService->sendWhatsAppMedia(
                             $this->data[$lastCar->getMatricula()],
@@ -141,7 +141,7 @@ class MessageProcessor
                         );
 
 
-                        $messageRepository->add($message, true);
+                        $messageRepository->add($messageObj, true);
                     }
                 }
             }
