@@ -51,9 +51,9 @@ class MessageRepository extends ServiceEntityRepository
     public function getLastMessageByWaId(string $waId)
     {
         return $this->createQueryBuilder('m')
-            ->andWhere('m.from = :m')
+            ->andWhere('m.messageFrom = :m')
             ->setParameter('m', $waId)
-            ->orderBy('c.id', 'DESC')
+            ->orderBy('m.id', 'DESC')
             ->setMaxResults(1)
             ->getQuery()
             ->getOneOrNullResult();

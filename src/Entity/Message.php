@@ -18,19 +18,19 @@ class Message implements Timestampable
     private int $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private string $message_content;
+    private string $messageContent;
 
     #[ORM\Column(type: 'string', length: 25)]
-    private string $message_type;
+    private string $messageType;
 
     #[ORM\Column(type: 'string')]
-    private string $message_to;
+    private string $messageTo;
 
     #[ORM\Column(type: 'string')]
-    private string $message_from;
+    private string $messageFrom;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private ?string $license_number;
+    private ?string $licenseNumber;
 
     #[ORM\Column(type: 'boolean', nullable: true)]
     private ?bool $sent;
@@ -62,60 +62,60 @@ class Message implements Timestampable
 
     public function getMessageContent(): ?string
     {
-        return $this->message_content;
+        return $this->messageContent;
     }
 
-    public function setMessageContent(string $message_content): self
+    public function setMessageContent(string $messageContent): self
     {
-        $this->message_content = $message_content;
+        $this->messageContent = $messageContent;
 
         return $this;
     }
 
     public function getMessageType(): ?string
     {
-        return $this->message_type;
+        return $this->messageType;
     }
 
-    public function setMessageType(string $message_type): self
+    public function setMessageType(string $messageType): self
     {
-        $this->message_type = $message_type;
+        $this->messageType = $messageType;
 
         return $this;
     }
 
     public function getMessageTo(): ?string
     {
-        return $this->message_to;
+        return $this->messageTo;
     }
 
-    public function setMessageTo(string $message_to): self
+    public function setMessageTo(string $messageTo): self
     {
-        $this->message_to = $message_to;
+        $this->messageTo = $messageTo;
 
         return $this;
     }
 
     public function getMessageFrom(): ?string
     {
-        return $this->message_from;
+        return $this->messageFrom;
     }
 
-    public function setMessageFrom(string $message_from): self
+    public function setMessageFrom(string $messageFrom): self
     {
-        $this->message_from = $message_from;
+        $this->messageFrom = $messageFrom;
 
         return $this;
     }
 
     public function getLicenseNumber(): ?string
     {
-        return $this->license_number;
+        return $this->licenseNumber;
     }
 
-    public function setLicenseNumber(?string $license_number): self
+    public function setLicenseNumber(?string $licenseNumber): self
     {
-        $this->license_number = $license_number;
+        $this->licenseNumber = $licenseNumber;
 
         return $this;
     }
