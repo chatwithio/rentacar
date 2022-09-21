@@ -48,6 +48,17 @@ class MessageRepository extends ServiceEntityRepository
             ->getDql();
     }
 
+    public function getLastMessageByWaId(string $waId)
+    {
+        return $this->createQueryBuilder('m')
+            ->andWhere('m.from = :m')
+            ->setParameter('m', $waId)
+            ->orderBy('c.id', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
 //    public function findOneBySomeField($value): ?Messages
 //    {
 //        return $this->createQueryBuilder('m')
