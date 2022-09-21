@@ -26,5 +26,6 @@ class WhatsappNotificationHandler
     {
         $data = json_decode($message->getContent(), true);
         $this->processMessage->process($data);
+        $this->processMessage->saveMessageData($data);
     }
 }

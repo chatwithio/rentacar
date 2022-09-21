@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Entity\Car;
+use App\Entity\Message;
 use Doctrine\Persistence\ManagerRegistry;
 
 use Doctrine\ORM\EntityManagerInterface;
@@ -162,6 +163,39 @@ class MessageProcessor
 
             if ($matricula && $tel) {
                 $this->data[$matricula] = $tel;
+            }
+        }
+    }
+
+    #[NoReturn]
+    public function saveMessageData(array $content): void
+    {
+        $messageRepository = $this->doctrine->getRepository(Message::class);
+
+        if (isset($content['statuses'])) {
+            foreach ($content['statuses'] as $status) {
+                if ($status['type'] == 'message') {
+                    $message = $messageRepository->findBy(['message_content' => $status['id']]);
+
+                    if (!$message) {
+                        $message = new Message();
+                    }
+
+                    if ($status['status'] === 'delivered') {
+                        $message->setDelivered(true);
+                    } else if ($status['status'] === 'read') {
+                        $message->setRead(true);
+                    } else if ($status['status'] === 'sent') {
+                        $message->setSent(true);
+                    }
+
+                    $message->setMessageType($status['type']);
+                    $message->setMessageTo($status['recipient_id']);
+                    $message->setMessageFrom($status['id']);
+                    $message->setMessageContent($status['id']);
+
+                    $this->doctrine->getRepository(Message::class)->add($message);
+                }
             }
         }
     }

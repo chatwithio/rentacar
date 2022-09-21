@@ -7,22 +7,23 @@ security:
             algorithm: auto
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
     providers:
-        users_in_memory: { memory: null }
-        # app_user_provider:
-        #     entity:
-        #         class: App\Entity\User
-        #         property: email
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
+            pattern: ^/
             lazy: true
-            provider: users_in_memory  
+            provider: app_user_provider  
+            logout:
+                path: app_logout
+                target: app_login
         secured_area:
-            # ...
             form_login:
-                # ...
                 enable_csrf: true
                 login_path: app_login
                 check_path: app_login

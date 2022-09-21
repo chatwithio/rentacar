@@ -3,6 +3,8 @@
 {% block title %}Messages{% endblock %}
 
 {% block body %}
+        <a class="float-right btn btn-danger" href="{{ path('app_logout') }}">Logout</a>
+
         <h2 class="mb-5">Messages</h2>
 
         {# total items count #}
@@ -11,28 +13,14 @@
                 <thead>
                 <tr>
                     {# sorting of properties based on query components #}
-                    <th>{{ knp_pagination_sortable(pagination, '#', 'id') }}</th>
-                    <th{% if pagination.isSorted('messageContent') %} class="sorted"{% endif %}>
-                        {{ knp_pagination_sortable(pagination, 'Body', 'messageContent') }}
-                    </th>
-                    <th{% if pagination.isSorted('messageFrom') %} class="sorted"{% endif %}>
-                        {{ knp_pagination_sortable(pagination, 'From', 'messageFrom') }}
-                    </th>
-                    <th{% if pagination.isSorted('messageFrom') %} class="sorted"{% endif %}>
-                        {{ knp_pagination_sortable(pagination, 'To', 'messageTo') }}
-                    </th>
-                    <th{% if pagination.isSorted('messageType') %} class="sorted"{% endif %}>
-                        {{ knp_pagination_sortable(pagination, 'Type', 'messageType') }}
-                    </th>
-                    <th{% if pagination.isSorted('sent') %} class="sorted"{% endif %}>
-                        {{ knp_pagination_sortable(pagination, 'Sent', 'sent') }}
-                    </th>
-                    <th{% if pagination.isSorted('delivered') %} class="sorted"{% endif %}>
-                        {{ knp_pagination_sortable(pagination, 'Delivered', 'delivered') }}
-                    </th>
-                    <th{% if pagination.isSorted('read') %} class="sorted"{% endif %}>
-                        {{ knp_pagination_sortable(pagination, 'Read', 'read') }}
-                    </th>
+                    <th>#</th>
+                    <th>Message ID</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Type</th>
+                    <th>Sent</th>
+                    <th>Delivered</th>
+                    <th>Read</th>
                 </tr>
                 </thead>
 

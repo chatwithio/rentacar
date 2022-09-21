@@ -136,3 +136,22 @@ h2 {
   background-color: #007bff;
   opacity: .2;
   border: 2px solid #007bff; }
+
+.navigation .pagination .current {
+  padding: 5px !important;
+}
+.navigation .pagination .page {
+  padding: 5px !important;
+}
+.navigation .pagination .next {
+  padding: 5px !important;
+}
+.navigation .pagination .first {
+  padding: 5px !important;
+}
+.navigation .pagination .previous {
+  padding: 5px !important;
+}
+.navigation .pagination .last {
+  padding: 5px !important;
+}

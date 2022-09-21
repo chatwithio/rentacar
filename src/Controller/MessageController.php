@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Message;
 use App\Repository\MessageRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
@@ -15,7 +14,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class MessageController extends AbstractController
 {
     private MessageRepository $messageRepository;
-    private LoggerInterface $logger;
     private EntityManagerInterface $em;
 
     public function __construct(
@@ -44,29 +42,5 @@ class MessageController extends AbstractController
         );
 
         return $this->render('message/index.html.twig', ['pagination' => $pagination]);
-    }
-
-    #[Route('/message', name: 'message', methods: ['GET', 'POST'])]
-    public function new(Request $request)
-    {
-        $parameters = json_decode($request->getContent(), true)['statuses'][0];
-        $this->logger->info($parameters['type']);
-
-        $message = new Message();
-        if ($parameters['status'] === 'delivered') {
-            $message->setDelivered(true);
-        } else if ($parameters['status'] === 'read') {
-            $message->setRead(true);
-        } else if ($parameters['status'] === 'sent') {
-            $message->setSent(true);
-        }
-        $message->setMessageType($parameters['type']);
-        $message->setMessageTo($parameters['recipient_id']);
-        $message->setMessageFrom($parameters['id']);
-        $message->setMessageContent('Demo');
-
-        $this->messageRepository->add($message, true);
-        
-        return $this->redirectToRoute('messages', [], Response::HTTP_SEE_OTHER);
     }
 }
