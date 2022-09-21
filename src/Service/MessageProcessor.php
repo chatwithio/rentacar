@@ -175,18 +175,18 @@ class MessageProcessor
         if (isset($content['statuses'])) {
             foreach ($content['statuses'] as $status) {
                 if ($status['type'] == 'message') {
-                    $message = $messageRepository->findBy(['message_content' => $status['id']]);
+                    $message = $messageRepository->findOneBy(['message_content' => $status['id']]);
 
                     if (!$message) {
                         $message = new Message();
                     }
 
-                    if ($status['status'] === 'delivered') {
+                    if ($status['status'] === 'sent') {
+                        $message->setSent(true);
+                    } else if ($status['status'] === 'delivered') {
                         $message->setDelivered(true);
                     } else if ($status['status'] === 'read') {
                         $message->setRead(true);
-                    } else if ($status['status'] === 'sent') {
-                        $message->setSent(true);
                     }
 
                     $message->setMessageType($status['type']);
@@ -194,7 +194,7 @@ class MessageProcessor
                     $message->setMessageFrom($status['id']);
                     $message->setMessageContent($status['id']);
 
-                    $this->doctrine->getRepository(Message::class)->add($message);
+                    $messageRepository->add($message, true);
                 }
             }
         }
