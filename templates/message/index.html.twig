@@ -1,0 +1,49 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Messages{% endblock %}
+
+{% block body %}
+        <a class="float-right btn btn-danger" href="{{ path('app_logout') }}">Logout</a>
+
+        <h2 class="mb-5">Messages</h2>
+
+        {# total items count #}
+        <div class="table-responsive custom-table-responsive">
+            <table class="table custom-table">
+                <thead>
+                <tr>
+                    {# sorting of properties based on query components #}
+                    <th>#</th>
+                    <th>Message ID</th>
+                    <th>From</th>
+                    <th>Type</th>
+                    <th>Sent</th>
+                    <th>Delivered</th>
+                    <th>Read</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {# table body #}
+                {% for message in pagination %}
+                    <tr {% if loop.index is odd %}class="color"{% endif %}>
+                        <td>{{ message.id }}</td>
+                        <td>
+                            {{ message.messageContent }}
+                            <small class="d-block">{{ message.createdAt | date('Y-m-d') }}</small>
+                        </td>
+                        <td>{{ message.messageFrom }}</td>
+                        <td>{{ message.messageType }}</td>
+                        <td>{{ message.sent ? "Yes" : "No" }}</td>
+                        <td>{{ message.delivered ? "Yes" : "No" }}</td>
+                        <td>{{ message.read ? "Yes" : "No" }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            {# display navigation #}
+            <div class="navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        </div>
+{% endblock %}

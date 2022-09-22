@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Entity\Car;
+use App\Entity\Message;
 use Doctrine\Persistence\ManagerRegistry;
 
 use Doctrine\ORM\EntityManagerInterface;
@@ -25,8 +26,16 @@ class MessageProcessor
     #[NoReturn]
     public function process($content)
     {
+        $messageRepository = $this->doctrine->getRepository(Message::class);
+
         if (isset($content['messages'])) {
             foreach ($content['messages'] as $k => $message) {
+                $messageObj = new Message();
+                $messageObj->setSent(false);
+                $messageObj->setDelivered(false);
+                $messageObj->setRead(false);
+                $messageObj->setMessageFrom($content['contacts'][$k]['wa_id']);
+                $messageObj->setMessageTo($content['contacts'][$k]['wa_id']);
                 $name = $content['contacts'][$k]['profile']['name'];
 
                 if ($message['type'] == 'text') {
@@ -37,6 +46,9 @@ class MessageProcessor
                     $matricula = str_replace(" ", '', $matricula);
 
                     if (isset($this->data[$matricula])) {
+                        $messageObj->setMessageType('text');
+                        $messageObj->setMessageContent($matricula);
+
                         //save the data
                         $car = new Car();
                         $car->setMatricula($matricula);
@@ -51,6 +63,8 @@ class MessageProcessor
                             $content['contacts'][$k]['wa_id'],
                             "Hola,$name, puedes empezar a enviarnos photos!"
                         );
+
+                        $messageRepository->add($messageObj, true);
                     } else {
                         // error whatsapp
                         $this->messageService->sendWhatsAppText(
@@ -73,6 +87,8 @@ class MessageProcessor
                     } else {
                         $image = $this->messageService->getMedia($message['image']['id']);
                         $mediaId = $this->messageService->postMedia($image, $message['image']['mime_type']);
+                        $messageObj->setMessageType('image');
+                        $messageObj->setMessageContent($message['image']['id']);
 
                         $this->messageService->sendWhatsAppMedia(
                             $this->data[$lastCar->getMatricula()],
@@ -88,6 +104,8 @@ class MessageProcessor
                             $content['contacts'][$k]['wa_id'],
                             "Foto recibido y enviado a " . $this->data[$lastCar->getMatricula()]
                         );
+
+                        $messageRepository->add($messageObj, true);
                     }
                 } elseif ($message['type'] == 'video') {
                     $this->processXml();
@@ -104,6 +122,8 @@ class MessageProcessor
                     } else {
                         $video = $this->messageService->getMedia($message['video']['id']);
                         $mediaId = $this->messageService->postMedia($video, $message['video']['mime_type']);
+                        $messageObj->setMessageType('video');
+                        $messageObj->setMessageContent($message['video']['id']);
 
                         $this->messageService->sendWhatsAppMedia(
                             $this->data[$lastCar->getMatricula()],
@@ -119,6 +139,35 @@ class MessageProcessor
                             $content['contacts'][$k]['wa_id'],
                             "Foto recibido y enviado a " . $this->data[$lastCar->getMatricula()]
                         );
+
+
+                        $messageRepository->add($messageObj, true);
+                    }
+                }
+            }
+        }
+    }
+
+    #[NoReturn]
+    public function updateMessageStatus(array $content): void
+    {
+        $messageRepository = $this->doctrine->getRepository(Message::class);
+
+        if (isset($content['statuses'])) {
+            foreach ($content['statuses'] as $status) {
+                if ($status['type'] == 'message') {
+                    $message = $messageRepository->getLastMessageByWaId($status['recipient_id']);
+
+                    if ($message) {
+                        if ($status['status'] === 'sent') {
+                            $message->setSent(true);
+                        } else if ($status['status'] === 'delivered') {
+                            $message->setDelivered(true);
+                        } else if ($status['status'] === 'read') {
+                            $message->setRead(true);
+                        }
+
+                        $messageRepository->add($message, true);
                     }
                 }
             }
