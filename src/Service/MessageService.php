@@ -307,5 +307,3 @@ class MessageService
         print "ERROR LOGGED:" . $exception->getMessage() . "\n";
     }
 }
-
-
