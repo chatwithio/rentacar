@@ -37,17 +37,17 @@ The `matricula` against the `phone number` to which the message has to be sent s
         "contacts": [
             {
                 "profile": {
-                    "name": "Hamza Awan"
+                    "name": "NAME"
                 },
-                "wa_id": "923241494612"
+                "wa_id": "NUMBER"
             }
         ],
         "messages": [
             {
-                "from": "923241494612",
-                "id": "ABEGkjJBSUYSAgo6Ipgzxau9Jez6",
+                "from": "NUMBER",
+                "id": "RANDOMLY_GENERATED_ID",
                 "text": {
-                    "body": "0376 JZH"
+                    "body": "MATRICULA"
                 },
                 "timestamp": "1663331304",
                 "type": "text"
@@ -102,21 +102,21 @@ The `matricula` against the `phone number` to which the message has to be sent s
         "contacts": [
             {
                 "profile": {
-                    "name": "Hamza Awan"
+                    "name": "NAME"
                 },
-                "wa_id": "923241494612"
+                "wa_id": "NUMBER"
             }
         ],
         "messages": [
             {
-                "from": "923241494612",
-                "id": "ABEGkjJBSUYSAgo6P7oMl-Kcasdm",
+                "from": "NUMBER",
+                "id": "NUMBER",
                 "timestamp": "1663334840",
                 "type": "video",
                 "video": {
-                    "id": "bcc2e89a-ffb1-4bf2-8dd8-90aa68d707db",
+                    "id": "MEDIA_ID",
                     "mime_type": "video\/mp4",
-                    "sha256": "a7014b886e64805d5d9cffa03647926a2f054a410fb93ecc5008b9df6a678050"
+                    "sha256": "RANDOMLY_GENERATED"
                 }
             }
         ]
@@ -128,5 +128,11 @@ The `matricula` against the `phone number` to which the message has to be sent s
       "message": "OK"
     }
     ```
-    
+  - The language of the message sent to the user is processed in the WhatsApp Message Service Processor based on the
+    `REFERENCIARES11` entity in the `resentrega.xml` file. The default language is `ESPANOL -> es`.
+    - FRANCES -> FR
+    - INGLES  -> EN
+    - ALEMAN  -> DE
+    - ESPANOL -> ES
+
 GOOD LUCK :)
