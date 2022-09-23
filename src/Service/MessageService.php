@@ -267,8 +267,6 @@ class MessageService
     /**
      * @return array (list of templates  - with their nmespaces and approved status)
      */
-
-
     public function sendWhatsAppText($to, $message)
     {
         $payload = [
