@@ -8,6 +8,7 @@ use Doctrine\Persistence\ManagerRegistry;
 
 use Doctrine\ORM\EntityManagerInterface;
 use JetBrains\PhpStorm\NoReturn;
+use JetBrains\PhpStorm\Pure;
 
 class MessageProcessor
 {
@@ -74,7 +75,7 @@ class MessageProcessor
                         // error whatsapp
                         $this->sendTextToWhatsappByLanguage(
                             $content['contacts'][$k]['wa_id'],
-                            $this->data[$matricula]['lang'],
+                            $this->getISOLanguageCodeUsingNumber($content['contacts'][$k]['wa_id']),
                             "Salut $name, cette inscription n'est pas dans notre base de données.",
                             "Hallo $name, diese Registrierung ist nicht in unserem datenbank.",
                             "Hola $name, este matricula no esta en nuestra base de datos.",
@@ -90,7 +91,7 @@ class MessageProcessor
                         // send WhatsApp message into different language
                         $this->sendTextToWhatsappByLanguage(
                             $content['contacts'][$k]['wa_id'],
-                            'ESPAÑOL',
+                            $this->getISOLanguageCodeUsingNumber($content['contacts'][$k]['wa_id']),
                             "Désolé $name. Nous n'avons pas trouvé de plaque d'immatriculation pour vous au cours de la dernière heure. vous devez le saisir à nouveau",
                             "Es tut mir leid $name, Wir haben in der letzten Stunde kein Nummernschild für dich gefunden. Sie müssen es erneut eingeben",
                             "Lo siento $name, No encontramos una matricula tuya en la ultima hora. Tienes que introducirlo de nuevo",
@@ -242,6 +243,21 @@ class MessageProcessor
         elseif ($this->data[$matricula]['lang'] === 'ALEMAN')
             return 'de';
         elseif ($this->data[$matricula]['lang'] === 'INGLES')
+            return 'en';
+        else
+            return 'es';
+    }
+
+    #[Pure]
+    private function getISOLanguageCodeUsingNumber(string $number): string
+    {
+        $code = substr($number, 0, 2);
+
+        if ($code === '33')
+            return 'fr';
+        elseif ($code === '49')
+            return 'de';
+        elseif ($code === '44')
             return 'en';
         else
             return 'es';
