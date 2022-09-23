@@ -273,7 +273,6 @@ class MessageService
             "to"   => $to,
             "type" => "text",
             "text" => ["body" => $message]
-
         ];
 
         return $this->send('message', $payload);

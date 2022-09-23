@@ -38,10 +38,10 @@ class MessageProcessor
                 $messageObj->setMessageFrom($content['contacts'][$k]['wa_id']);
                 $messageObj->setMessageTo($content['contacts'][$k]['wa_id']);
                 $name = $content['contacts'][$k]['profile']['name'];
+                $type = $message['type'];
+                $this->processXml();
 
-                if ($message['type'] == 'text') {
-                    $this->processXml();
-
+                if ($type == 'text') {
                     $matricula = $message['text']['body'];
                     $matricula = strtoupper($matricula);
                     $matricula = str_replace(" ", '', $matricula);
@@ -63,10 +63,10 @@ class MessageProcessor
                         $this->sendTextToWhatsappByLanguage(
                             $content['contacts'][$k]['wa_id'],
                             $this->data[$matricula]['lang'],
-                            "Salut,$name, vous pouvez commencer à nous envoyer des photos!",
-                            "Hallo,$name, Sie können anfangen, uns Fotos zu schicken!",
-                            "Hola,$name, puedes empezar a enviarnos photos!",
-                            "Hello,$name, you can start sending us photos!"
+                            "Salut $name, vous pouvez commencer à nous envoyer des photos/vidéos!",
+                            "Hallo $name, Sie können anfangen, uns fotos/videos zu schicken!",
+                            "Hola $name, puedes empezar a enviarnos photos/videos!",
+                            "Hello $name, you can start sending us photos/videos!"
                         );
 
                         $messageRepository->add($messageObj, true);
@@ -75,15 +75,13 @@ class MessageProcessor
                         $this->sendTextToWhatsappByLanguage(
                             $content['contacts'][$k]['wa_id'],
                             $this->data[$matricula]['lang'],
-                            "Salut,$name, cette inscription n'est pas dans notre BBDD.",
-                            "Hallo,$name, diese Registrierung ist nicht in unserem BBDD.",
-                            "Hola,$name, este matricula no esta en nuestra BBDD.",
-                            "Hello,$name, this registration is not in our BBDD."
+                            "Salut $name, cette inscription n'est pas dans notre base de données.",
+                            "Hallo $name, diese Registrierung ist nicht in unserem datenbank.",
+                            "Hola $name, este matricula no esta en nuestra base de datos.",
+                            "Hello $name, this registration is not in our database."
                         );
                     }
-                } elseif ($message['type'] == 'image') {
-                    $this->processXml();
-
+                } else {
                     $lastCar = $this->doctrine->getRepository(Car::class)->getLastCarByWaId(
                         $content['contacts'][$k]['wa_id']
                     );
@@ -93,77 +91,34 @@ class MessageProcessor
                         $this->sendTextToWhatsappByLanguage(
                             $content['contacts'][$k]['wa_id'],
                             'ESPAÑOL',
-                            "Désolé,$name. Nous n'avons pas trouvé de plaque d'immatriculation pour vous au cours de la dernière heure. vous devez le saisir à nouveau",
-                            "Es tut mir leid,$name. Wir haben in der letzten Stunde kein Nummernschild für dich gefunden. Sie müssen es erneut eingeben",
-                            "Lo siento,$name. No encontramos una matricula tuya en la ultima hora. Tienes que introducirlo de nuevo",
-                            "I am sorry,$name. We didn't find a license plate for you in the last hour. you have to enter it again",
+                            "Désolé $name. Nous n'avons pas trouvé de plaque d'immatriculation pour vous au cours de la dernière heure. vous devez le saisir à nouveau",
+                            "Es tut mir leid $name, Wir haben in der letzten Stunde kein Nummernschild für dich gefunden. Sie müssen es erneut eingeben",
+                            "Lo siento $name, No encontramos una matricula tuya en la ultima hora. Tienes que introducirlo de nuevo",
+                            "I am sorry $name, We didn't find a license plate for you in the last hour. you have to enter it again",
                         );
                     } else {
-                        $image = $this->messageService->getMedia($message['image']['id']);
-                        $mediaId = $this->messageService->postMedia($image, $message['image']['mime_type']);
-                        $messageObj->setMessageType('image');
-                        $messageObj->setMessageContent($message['image']['id']);
+                        $media = $this->messageService->getMedia($message[$type]['id']);
+                        $mediaId = $this->messageService->postMedia($media, $message[$type]['mime_type']);
+                        $messageObj->setMessageType($type);
+                        $messageObj->setMessageContent($message[$type]['id']);
 
                         $this->messageService->sendWhatsAppMedia(
                             $this->data[$lastCar->getMatricula()]['tel'],
                             [$name, $content['contacts'][$k]['wa_id'], $lastCar->getMatricula()],
-                            $this->getImageTemplateUsingLanguage(),
-                            $this->getISOLanguageCode(),
+                            $this->getMediaTemplateUsingLanguage($lastCar->getMatricula(), strtoupper($type)),
+                            $this->getISOLanguageCode($lastCar->getMatricula()),
                             $_ENV['WHATSAPP_TEMPLATE_NAMESPACE'],
-                            'image',
+                            $type,
                             $mediaId
                         );
 
                         $this->sendTextToWhatsappByLanguage(
                             $content['contacts'][$k]['wa_id'],
                             $this->data[$lastCar->getMatricula()]['lang'],
-                            "Photo reçue et envoyée à " . $this->data[$lastCar->getMatricula()]['tel'],
-                            "Foto erhalten und gesendet an " . $this->data[$lastCar->getMatricula()]['tel'],
-                            "Foto recibido y enviado a " . $this->data[$lastCar->getMatricula()]['tel'],
-                            "Photo received and sent to " . $this->data[$lastCar->getMatricula()]['tel']
-                        );
-
-                        $messageRepository->add($messageObj, true);
-                    }
-                } elseif ($message['type'] == 'video') {
-                    $this->processXml();
-
-                    $lastCar = $this->doctrine->getRepository(Car::class)->getLastCarByWaId(
-                        $content['contacts'][$k]['wa_id']
-                    );
-
-                    if (!$lastCar) {
-                        $this->sendTextToWhatsappByLanguage(
-                            $content['contacts'][$k]['wa_id'],
-                            'ESPAÑOL',
-                            "Désolé,$name. Nous n'avons pas trouvé de plaque d'immatriculation pour vous au cours de la dernière heure. vous devez le saisir à nouveau",
-                            "Es tut mir leid,$name. Wir haben in der letzten Stunde kein Nummernschild für dich gefunden. Sie müssen es erneut eingeben",
-                            "Lo siento,$name. No encontramos una matricula tuya en la ultima hora. Tienes que introducirlo de nuevo",
-                            "I am sorry,$name. We didn't find a license plate for you in the last hour. you have to enter it again"
-                        );
-                    } else {
-                        $video = $this->messageService->getMedia($message['video']['id']);
-                        $mediaId = $this->messageService->postMedia($video, $message['video']['mime_type']);
-                        $messageObj->setMessageType('video');
-                        $messageObj->setMessageContent($message['video']['id']);
-
-                        $this->messageService->sendWhatsAppMedia(
-                            $this->data[$lastCar->getMatricula()]['tel'],
-                            [$name, $content['contacts'][$k]['wa_id'], $lastCar->getMatricula()],
-                            $this->getVideoTemplateUsingLanguage(),
-                            $this->getISOLanguageCode(),
-                            $_ENV['WHATSAPP_TEMPLATE_NAMESPACE'],
-                            'video',
-                            $mediaId
-                        );
-
-                        $this->sendTextToWhatsappByLanguage(
-                            $content['contacts'][$k]['wa_id'],
-                            $this->data[$lastCar->getMatricula()]['lang'],
-                            "Video reçue et envoyée à " . $this->data[$lastCar->getMatricula()]['tel'],
-                            "Video erhalten und gesendet an " . $this->data[$lastCar->getMatricula()]['tel'],
-                            "Video recibido y enviado a " . $this->data[$lastCar->getMatricula()]['tel'],
-                            "Photo received and sent to " . $this->data[$lastCar->getMatricula()]['tel']
+                            ($type == 'image' ? "Photo" : "Vidéo") . " reçue et envoyée à " . $this->data[$lastCar->getMatricula()]['tel'],
+                            ($type == 'image' ? "Foto" : "Video") . " erhalten und gesendet an " . $this->data[$lastCar->getMatricula()]['tel'],
+                            ($type == 'image' ? "Foto" : "Video") . " recibido y enviado a " . $this->data[$lastCar->getMatricula()]['tel'],
+                            ($type == 'image' ? "Photo" : "Video") . " received and sent to " . $this->data[$lastCar->getMatricula()]['tel']
                         );
 
                         $messageRepository->add($messageObj, true);
@@ -250,7 +205,7 @@ class MessageProcessor
 
     #[NoReturn]
     private function sendTextToWhatsappByLanguage(
-        $whatsAppId,
+        $whatsAppNumber,
         $lang,
         $frenchMessage,
         $germanMessage,
@@ -260,59 +215,47 @@ class MessageProcessor
         switch ($lang) {
             case 'FRANCES':
                 // send the message in french
-                $this->messageService->sendWhatsAppText($whatsAppId, $frenchMessage);
+                $this->messageService->sendWhatsAppText($whatsAppNumber, $frenchMessage);
                 break;
 
             case 'ALEMAN':
                 // send the message in german
-                $this->messageService->sendWhatsAppText($whatsAppId, $germanMessage);
+                $this->messageService->sendWhatsAppText($whatsAppNumber, $germanMessage);
                 break;
 
             case 'INGLES':
                 // send the message in english
-                $this->messageService->sendWhatsAppText($whatsAppId, $englishMessage);
+                $this->messageService->sendWhatsAppText($whatsAppNumber, $englishMessage);
                 break;
 
             default:
                 // send the message in spanish
-                $this->messageService->sendWhatsAppText($whatsAppId, $spanishMessage);
+                $this->messageService->sendWhatsAppText($whatsAppNumber, $spanishMessage);
                 break;
         }
     }
 
-    private function getISOLanguageCode(): string
+    private function getISOLanguageCode(string $matricula): string
     {
-        if ($this->data['lang'] === 'FRANCES')
+        if ($this->data[$matricula]['lang'] === 'FRANCES')
             return 'fr';
-        elseif ($this->data['lang'] === 'ALEMAN')
+        elseif ($this->data[$matricula]['lang'] === 'ALEMAN')
             return 'de';
-        elseif ($this->data['lang'] === 'INGLES')
+        elseif ($this->data[$matricula]['lang'] === 'INGLES')
             return 'en';
         else
             return 'es';
     }
 
-    private function getImageTemplateUsingLanguage(): string
+    private function getMediaTemplateUsingLanguage(string $matricula, string $type): string
     {
-        if ($this->data['lang'] === 'FRANCES')
-            return $_ENV['WHATSAPP_IMAGE_TEMPLATE_FR'];
-        elseif ($this->data['lang'] === 'ALEMAN')
-            return $_ENV['WHATSAPP_IMAGE_TEMPLATE_DE'];
-        elseif ($this->data['lang'] === 'INGLES')
-            return $_ENV['WHATSAPP_IMAGE_TEMPLATE_EN'];
+        if ($this->data[$matricula]['lang'] === 'FRANCES')
+            return $_ENV['WHATSAPP_' . $type . '_TEMPLATE_FR'];
+        elseif ($this->data[$matricula]['lang'] === 'ALEMAN')
+            return $_ENV['WHATSAPP_' . $type . '_TEMPLATE_DE'];
+        elseif ($this->data[$matricula]['lang'] === 'INGLES')
+            return $_ENV['WHATSAPP_' . $type . '_TEMPLATE_EN'];
         else
-            return $_ENV['WHATSAPP_IMAGE_TEMPLATE_ES'];
-    }
-
-    private function getVideoTemplateUsingLanguage(): string
-    {
-        if ($this->data['lang'] === 'FRANCES')
-            return $_ENV['WHATSAPP_VIDEO_TEMPLATE_FR'];
-        elseif ($this->data['lang'] === 'ALEMAN')
-            return $_ENV['WHATSAPP_VIDEO_TEMPLATE_DE'];
-        elseif ($this->data['lang'] === 'INGLES')
-            return $_ENV['WHATSAPP_VIDEO_TEMPLATE_EN'];
-        else
-            return $_ENV['WHATSAPP_VIDEO_TEMPLATE_ES'];
+            return $_ENV['WHATSAPP_' . $type . '_TEMPLATE_ES'];
     }
 }
