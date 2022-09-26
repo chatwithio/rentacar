@@ -267,15 +267,12 @@ class MessageService
     /**
      * @return array (list of templates  - with their nmespaces and approved status)
      */
-
-
     public function sendWhatsAppText($to, $message)
     {
         $payload = [
             "to"   => $to,
             "type" => "text",
             "text" => ["body" => $message]
-
         ];
 
         return $this->send('message', $payload);
@@ -307,5 +304,3 @@ class MessageService
         print "ERROR LOGGED:" . $exception->getMessage() . "\n";
     }
 }
-
-
