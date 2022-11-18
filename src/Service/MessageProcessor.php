@@ -81,6 +81,8 @@ class MessageProcessor
                             "Hola $name, este matricula no esta en nuestra base de datos.",
                             "Hello $name, this registration is not in our database."
                         );
+
+                        $this->menuBasedChatBot($content['contacts'][$k]['wa_id'], $name);
                     }
                 } else {
                     $lastCar = $this->doctrine->getRepository(Car::class)->getLastCarByWaId(
@@ -273,5 +275,88 @@ class MessageProcessor
             return $_ENV['WHATSAPP_' . $type . '_TEMPLATE_EN'];
         else
             return $_ENV['WHATSAPP_' . $type . '_TEMPLATE_ES'];
+    }
+
+    private function menuBasedChatBot($number) {
+        $questionNamespace = 'preguntas_coche_entegrado';
+        $menu = $this->menu();
+
+    }
+
+    private function menu()
+    {
+        return [
+            '1' => [
+                'question' => 'Dónde está la llave?',
+                'type' => 'text',
+                'answer' => 'Hola, en la tapa de la gasolina del coche',
+                'namespace' => 'ubicación_llave',
+                'hasSubQuestion' => false
+            ],
+            'Qué gasolina lleva?' => [
+                'type' => 'text',
+                'answer' => 'Hola, mire en el llavero de su coche alquilado, debajo de la matrícula viene el combustible que lleva.',
+                'namespace' => 'tipo_gasolina',
+                'hasSubQuestion' => false
+            ],
+            'El coche está arañado, tiene un roce' => [
+                'type' => 'text',
+                'answer' => 'Hola, no se preocupe, saque fotos de los daños del coche y nos las remite por whatssapp al +34 65618 0379 o por email a: carmen@teneriferentacar.com .',
+                'namespace' => 'estado_coche',
+                'hasSubQuestion' => false
+            ],
+            'Cómo se pone la silla de bebé?' => [
+                'type' => 'text',
+                'answer' => '',
+                'namespace' => 'silla_bebe',
+                'hasSubQuestion' => false
+            ],
+            'Dónde se paga el ticket del parking?' => [
+                'type' => 'text',
+                'answer' => 'Hola, en qué Aeropuerto se encuentra?',
+                'namespace' => 'ticket_parking',
+                'hasSubQuestion' => true,
+                [
+                    '1. Rodeos Tenerife Norte' => [
+                        'type' => 'text',
+                        'answer' => 'Entre en la terminal y al lado de la puerta de Salida encontrará un Cajero.',
+                        'namespace' => 'parking_rodeos_tenerife_norte',
+                        'hasSubQuestion' => false
+                    ],
+                    '2. Reina Sofía Tenerife Sur' => [
+                        'type' => 'text',
+                        'answer' => 'En cualquier cajero del parking público, tiene el cajero central entre las filas B2 y B3',
+                        'namespace' => 'parking_reina_sofia_tenerife_sur',
+                        'hasSubQuestion' => false
+                    ],
+                ]
+            ],
+            'Cómo recupero el dinero del parking?' => [
+                'type' => 'text',
+                'answer' => 'Hola, escríbanos un email a: carmen@teneriferentacar.com con sus datos, número de la reserva y una imagen buena del ticket.',
+                'namespace' => 'recuperar_dinero_parking',
+                'hasSubQuestion' => false
+            ],
+            'Su reserva incluye el combustible? 1. NO 2. SI' => [
+                'type' => 'text',
+                'answer' => 'Hola, escríbanos un email a: carmen@teneriferentacar.com con sus datos, número de la reserva y una imagen buena del ticket.',
+                'namespace' => 'estado_combustible',
+                'hasSubQuestion' => true,
+                [
+                    '1. NO' => [
+                        'type' => 'text',
+                        'answer' => 'El coche lo tiene que devolver con la misma cantidad de combustible que lo en contró.',
+                        'namespace' => 'mismo_estado_deposito',
+                        'hasSubQuestion' => false
+                    ],
+                    '2. SI' => [
+                        'type' => 'text',
+                        'answer' => 'Si ha reservado el alquiler del coche con el servicio de combustible lleno y el coche no lo está, Saque una foto de la cantidad actual y póngase en contacto con Autos Plaza',
+                        'namespace' => 'estado_lleno_lleno',
+                        'hasSubQuestion' => false
+                    ],
+                ]
+            ],
+        ];
     }
 }
