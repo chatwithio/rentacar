@@ -82,7 +82,7 @@ class MessageProcessor
                             "Hello $name, this registration is not in our database."
                         );
 
-                        $this->menuBasedChatBot($content['contacts'][$k]['wa_id'], $name);
+                        $this->menuBasedChatBot($content['contacts'][$k]['wa_id'], '0');
                     }
                 } else {
                     $lastCar = $this->doctrine->getRepository(Car::class)->getLastCarByWaId(
@@ -277,53 +277,122 @@ class MessageProcessor
             return $_ENV['WHATSAPP_' . $type . '_TEMPLATE_ES'];
     }
 
-    private function menuBasedChatBot($number) {
+    public function menuBasedChatBot($number, $menuIndex, $subMenuIndex = '') {
         $questionNamespace = 'preguntas_coche_entegrado';
         $menu = $this->menu();
+        $subMenu = ['a' => 1, 'b' => 2, 'c' => 3];
 
+        if ($subMenuIndex !== '') {
+            if (array_key_exists($subMenu[$subMenuIndex], $menu[$menuIndex]['subQuestions'])) {
+                $question = $menu[$menuIndex]['subQuestions'][$subMenu[$subMenuIndex]];
+
+                if ($question['type'] === 'text') {
+                    $this->messageService->sendWhatsAppText($number, $question['answer']);
+                }
+            }
+
+            return;
+        }
+
+        if (array_key_exists($menuIndex, $menu)) {
+            if ($menu[$menuIndex]['type'] === 'text') {
+                $this->messageService->sendWhatsAppText($number, $menu[$menuIndex]['answer']);
+            }
+
+            if (sizeof($menu[$menuIndex]['subQuestions']) > 0) {
+                foreach ($menu[$menuIndex]['subQuestions'] as $key => $question) {
+                    $this->messageService->sendWhatsAppText(
+                        $number,
+                        $menuIndex . array_flip($subMenu)[$key] . ' -> ' . $question['question']
+                    );
+                }
+            }
+
+            return;
+        }
+
+        foreach ($menu as $key => $question) {
+            if ($question['type'] === 'text') {
+                $this->messageService->sendWhatsAppText($number,  $key . ' -> ' . $question['question']);
+            }
+        }
     }
 
     private function menu()
     {
         return [
             '1' => [
+                'question' => 'Ya llegamos, dónde está el coche?',
+                'type' => 'text',
+                'answer' => 'Hola, en el parking público del aeropuerto. En las fotos enviadas verá la ubicación su coche alquilado',
+                'namespace' => 'ubicación_coche',
+                'subQuestions' => [],
+            ],
+            '2' => [
+                'question' => 'Cómo llego al parking, aparcamiento?',
+                'type' => 'text',
+                'answer' => 'Hola, en qué Aeropuerto se encuentra? ',
+                'namespace' => 'opciones_aeropuerto',
+                'subQuestions' => [
+                    '1' => [
+                        'question' => 'Rodeos Tenerife Norte',
+                        'type' => 'text',
+                        'answer' => 'Después de recoger el equipaje, diríjase a los ascensores situados a la izquierda, pasado el mostrador de AENA o la Famacia. Ya en el ascensor, pulse el botón S-2 (planta Sótano 2). También puede bajar por las escaleras mecánicas',
+                        'namespace' => 'equipaje_rodeos_tenerife_norte',
+                        'subQuestions' => [],
+                    ],
+                    '2' => [
+                        'question' => 'Reina Sofía Tenerife Sur',
+                        'type' => 'text',
+                        'answer' => 'Después de recoger su equipaje, salga de la terminal de llegadas por la puerta 10 ó 11 y siga todo recto hacia el parking público. Tb. puede serguir las indicaciones de cómo llegar al PUNTO de ENCUENTRO que está en el parking público.',
+                        'namespace' => 'equipaje_reina_sofia_tenerife_sur',
+                        'subQuestions' => [],
+                    ]
+                ]
+            ],
+            '3' => [
                 'question' => 'Dónde está la llave?',
                 'type' => 'text',
                 'answer' => 'Hola, en la tapa de la gasolina del coche',
                 'namespace' => 'ubicación_llave',
-                'hasSubQuestion' => false
+                'subQuestions' => []
             ],
-            'Qué gasolina lleva?' => [
+            '4' => [
+                'question' => 'Qué gasolina lleva?',
                 'type' => 'text',
                 'answer' => 'Hola, mire en el llavero de su coche alquilado, debajo de la matrícula viene el combustible que lleva.',
                 'namespace' => 'tipo_gasolina',
-                'hasSubQuestion' => false
+                'subQuestions' => []
             ],
-            'El coche está arañado, tiene un roce' => [
+            '5' => [
+                'question' => 'El coche está arañado, tiene un roce',
                 'type' => 'text',
                 'answer' => 'Hola, no se preocupe, saque fotos de los daños del coche y nos las remite por whatssapp al +34 65618 0379 o por email a: carmen@teneriferentacar.com .',
                 'namespace' => 'estado_coche',
-                'hasSubQuestion' => false
+                'subQuestions' => []
             ],
-            'Cómo se pone la silla de bebé?' => [
-                'type' => 'text',
+            '6' => [
+                'question' => 'Cómo se pone la silla de bebé?',
+                'type' => 'video',
                 'answer' => '',
                 'namespace' => 'silla_bebe',
-                'hasSubQuestion' => false
+                'subQuestions' => []
             ],
-            'Dónde se paga el ticket del parking?' => [
+            '7' => [
+                'question' => 'Dónde se paga el ticket del parking?',
                 'type' => 'text',
                 'answer' => 'Hola, en qué Aeropuerto se encuentra?',
                 'namespace' => 'ticket_parking',
-                'hasSubQuestion' => true,
-                [
-                    '1. Rodeos Tenerife Norte' => [
+                'subQuestions' => [
+                    '1' => [
+                        'question' => 'Rodeos Tenerife Norte',
                         'type' => 'text',
                         'answer' => 'Entre en la terminal y al lado de la puerta de Salida encontrará un Cajero.',
                         'namespace' => 'parking_rodeos_tenerife_norte',
                         'hasSubQuestion' => false
                     ],
-                    '2. Reina Sofía Tenerife Sur' => [
+                    '2' => [
+                        'question' => 'Reina Sofía Tenerife Sur',
                         'type' => 'text',
                         'answer' => 'En cualquier cajero del parking público, tiene el cajero central entre las filas B2 y B3',
                         'namespace' => 'parking_reina_sofia_tenerife_sur',
@@ -331,25 +400,28 @@ class MessageProcessor
                     ],
                 ]
             ],
-            'Cómo recupero el dinero del parking?' => [
+            '8' => [
+                'question' => 'Cómo recupero el dinero del parking?',
                 'type' => 'text',
                 'answer' => 'Hola, escríbanos un email a: carmen@teneriferentacar.com con sus datos, número de la reserva y una imagen buena del ticket.',
                 'namespace' => 'recuperar_dinero_parking',
-                'hasSubQuestion' => false
+                'subQuestions' => []
             ],
-            'Su reserva incluye el combustible? 1. NO 2. SI' => [
+            '9' => [
+                'question' => 'El coche no está lleno',
                 'type' => 'text',
-                'answer' => 'Hola, escríbanos un email a: carmen@teneriferentacar.com con sus datos, número de la reserva y una imagen buena del ticket.',
+                'answer' => 'Su reserva incluye el combustible? 1. NO 2. SI',
                 'namespace' => 'estado_combustible',
-                'hasSubQuestion' => true,
-                [
-                    '1. NO' => [
+                'subQuestions' => [
+                    '1' => [
+                        'question' => 'NO',
                         'type' => 'text',
                         'answer' => 'El coche lo tiene que devolver con la misma cantidad de combustible que lo en contró.',
                         'namespace' => 'mismo_estado_deposito',
                         'hasSubQuestion' => false
                     ],
-                    '2. SI' => [
+                    '2' => [
+                        'question' => 'SI',
                         'type' => 'text',
                         'answer' => 'Si ha reservado el alquiler del coche con el servicio de combustible lleno y el coche no lo está, Saque una foto de la cantidad actual y póngase en contacto con Autos Plaza',
                         'namespace' => 'estado_lleno_lleno',
@@ -357,6 +429,35 @@ class MessageProcessor
                     ],
                 ]
             ],
+            '10' => [
+                'question' => 'El coche no arranca',
+                'type' => 'text',
+                'answer' => 'Qué modelo de coche tiene?',
+                'namespace' => 'modelo_coche',
+                'subQuestions' => [
+                    '1' => [
+                        'question' => 'Aygo',
+                        'type' => 'text',
+                        'answer' => 'Sigua las siguientes instrucciones: 1) Pise el embrague, 2) introduzca la llave y gírela para arrancar. Si no lo logra póngase en contacto con Autos Plaza',
+                        'namespace' => 'arrancar_coche',
+                        'hasSubQuestion' => false
+                    ],
+                    '2' => [
+                        'question' => 'Yaris',
+                        'type' => 'text',
+                        'answer' => 'Sigua las siguientes instrucciones: 1) Pise el embrague, 2) introduzca la llave y gírela para arrancar. Si no lo logra póngase en contacto con Autos Plaza',
+                        'namespace' => 'arrancar_coche',
+                        'hasSubQuestion' => false
+                    ],
+                    '3' => [
+                        'question' => 'Corsa',
+                        'type' => 'text',
+                        'answer' => 'Sigua las siguientes instrucciones: 1) Pise el embrague, 2) introduzca la llave y gírela para arrancar. Si no lo logra póngase en contacto con Autos Plaza',
+                        'namespace' => 'arrancar_coche',
+                        'hasSubQuestion' => false
+                    ]
+                ]
+            ]
         ];
     }
 }
