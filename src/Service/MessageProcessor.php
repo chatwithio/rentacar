@@ -24,8 +24,7 @@ class MessageProcessor
         $this->messageService = $messageService;
     }
 
-    #[NoReturn]
-    public function process($content)
+    public function process($content): void
     {
         $messageRepository = $this->doctrine->getRepository(Message::class);
 
@@ -131,7 +130,6 @@ class MessageProcessor
         }
     }
 
-    #[NoReturn]
     public function updateMessageStatus(array $content): void
     {
         $messageRepository = $this->doctrine->getRepository(Message::class);
@@ -157,7 +155,7 @@ class MessageProcessor
         }
     }
 
-    private function processXml()
+    private function processXml(): void
     {
         $xmldata = simplexml_load_file($_ENV['ROOT_DIR'] . "xml/resentrega.xml") or die("Failed to load");
 
@@ -206,7 +204,6 @@ class MessageProcessor
         }
     }
 
-    #[NoReturn]
     private function sendTextToWhatsappByLanguage(
         $whatsAppNumber,
         $lang,
@@ -277,8 +274,8 @@ class MessageProcessor
             return $_ENV['WHATSAPP_' . $type . '_TEMPLATE_ES'];
     }
 
-    public function menuBasedChatBot($number, $menuIndex, $subMenuIndex = '') {
-        $questionNamespace = 'preguntas_coche_entegrado';
+    public function menuBasedChatBot($number, $menuIndex, $subMenuIndex = ''): void
+    {
         $menu = $this->menu();
         $subMenu = ['a' => 1, 'b' => 2, 'c' => 3];
 
@@ -300,25 +297,32 @@ class MessageProcessor
             }
 
             if (sizeof($menu[$menuIndex]['subQuestions']) > 0) {
+                $questions = '';
                 foreach ($menu[$menuIndex]['subQuestions'] as $key => $question) {
-                    $this->messageService->sendWhatsAppText(
-                        $number,
-                        $menuIndex . array_flip($subMenu)[$key] . ' -> ' . $question['question']
-                    );
+                    $questions .= $menuIndex . array_flip($subMenu)[$key] . ' -> ' . $question['question'] . "\r\n";
                 }
+                $this->messageService->sendWhatsAppText(
+                    $number,
+                    $questions
+                );
             }
 
             return;
         }
 
+        $questions = '';
         foreach ($menu as $key => $question) {
             if ($question['type'] === 'text') {
-                $this->messageService->sendWhatsAppText($number,  $key . ' -> ' . $question['question']);
+               $questions .= $key . ' -> ' . $question['question'] . "\r\n";
             }
+        }
+
+        if ($questions !== '') {
+            $this->messageService->sendWhatsAppText($number,  $questions);
         }
     }
 
-    private function menu()
+    private function menu(): array
     {
         return [
             '1' => [
@@ -389,14 +393,14 @@ class MessageProcessor
                         'type' => 'text',
                         'answer' => 'Entre en la terminal y al lado de la puerta de Salida encontrará un Cajero.',
                         'namespace' => 'parking_rodeos_tenerife_norte',
-                        'hasSubQuestion' => false
+                        'subQuestions' => []
                     ],
                     '2' => [
                         'question' => 'Reina Sofía Tenerife Sur',
                         'type' => 'text',
                         'answer' => 'En cualquier cajero del parking público, tiene el cajero central entre las filas B2 y B3',
                         'namespace' => 'parking_reina_sofia_tenerife_sur',
-                        'hasSubQuestion' => false
+                        'subQuestions' => []
                     ],
                 ]
             ],
@@ -418,14 +422,14 @@ class MessageProcessor
                         'type' => 'text',
                         'answer' => 'El coche lo tiene que devolver con la misma cantidad de combustible que lo en contró.',
                         'namespace' => 'mismo_estado_deposito',
-                        'hasSubQuestion' => false
+                        'subQuestions' => []
                     ],
                     '2' => [
                         'question' => 'SI',
                         'type' => 'text',
                         'answer' => 'Si ha reservado el alquiler del coche con el servicio de combustible lleno y el coche no lo está, Saque una foto de la cantidad actual y póngase en contacto con Autos Plaza',
                         'namespace' => 'estado_lleno_lleno',
-                        'hasSubQuestion' => false
+                        'subQuestions' => []
                     ],
                 ]
             ],
@@ -440,21 +444,21 @@ class MessageProcessor
                         'type' => 'text',
                         'answer' => 'Sigua las siguientes instrucciones: 1) Pise el embrague, 2) introduzca la llave y gírela para arrancar. Si no lo logra póngase en contacto con Autos Plaza',
                         'namespace' => 'arrancar_coche',
-                        'hasSubQuestion' => false
+                        'subQuestions' => []
                     ],
                     '2' => [
                         'question' => 'Yaris',
                         'type' => 'text',
                         'answer' => 'Sigua las siguientes instrucciones: 1) Pise el embrague, 2) introduzca la llave y gírela para arrancar. Si no lo logra póngase en contacto con Autos Plaza',
                         'namespace' => 'arrancar_coche',
-                        'hasSubQuestion' => false
+                        'subQuestions' => []
                     ],
                     '3' => [
                         'question' => 'Corsa',
                         'type' => 'text',
                         'answer' => 'Sigua las siguientes instrucciones: 1) Pise el embrague, 2) introduzca la llave y gírela para arrancar. Si no lo logra póngase en contacto con Autos Plaza',
                         'namespace' => 'arrancar_coche',
-                        'hasSubQuestion' => false
+                        'subQuestions' => []
                     ]
                 ]
             ]
